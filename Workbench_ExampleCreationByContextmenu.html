@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementing Tutor Examples &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Workbench" href="Workbench.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="WelcomePage.html">
+   Welcome to the MatlabTutor Integration-Doc
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Overview.html">
+   Overview of the MatlabTutor
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="Workbench.html">
+   Workbench
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Implementing Tutor Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Workbench_ExampleCreationByContextmenu.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWorkbench_ExampleCreationByContextmenu.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anatomy-of-a-tutor-example">
+   Anatomy of a Tutor Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-a-starting-point">
+   Setting up a starting point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copying-examples-by-context-menu">
+   Copying Examples by context-menu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copying-examples-by-convert-file">
+   Copying Examples by convert-file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-convert-file">
+     Create a convert-file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modifying-the-convert-file">
+     Modifying the convert-file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copying-the-example">
+     Copying the Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assigning-the-new-example">
+     Assigning the new Example
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="implementing-tutor-examples">
+<h1>Implementing Tutor Examples<a class="headerlink" href="#implementing-tutor-examples" title="Permalink to this headline">¶</a></h1>
+<p>Implementing TutorExamples can be done under the Perspective “Workbench”, so be sure to select it, and then choose the tab “Examples” in the top left. All the following operations will take place within this view, although the selected course may vary.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_ExampleView1" src="_images/Workbench_ExampleView1.png" />)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="anatomy-of-a-tutor-example">
+<h2>Anatomy of a Tutor Example<a class="headerlink" href="#anatomy-of-a-tutor-example" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to create our own Examples, it is important to understand the underlying structure necessary for a working Example. We will discuss each file needed in this chapter.</p>
+</div>
+<div class="section" id="setting-up-a-starting-point">
+<h2>Setting up a starting point<a class="headerlink" href="#setting-up-a-starting-point" title="Permalink to this headline">¶</a></h2>
+<p>Whenever we want to implement new Tutor Examples, it is best to start from Examples aleady existing. This way, we have a strong guideline, allowing us to adjust files of interest, while not having to focus on proper creation of the setup-files needed by the tool. There are two ways to accomplish this: Copying an existing Example from another Course via Context Menus provided by MatlabTutor, and via creation of Convert-files.</p>
+</div>
+<div class="section" id="copying-examples-by-context-menu">
+<h2>Copying Examples by context-menu<a class="headerlink" href="#copying-examples-by-context-menu" title="Permalink to this headline">¶</a></h2>
+<p>This approach is especially feasable if an existing Example is already very similar to the new Example we want to implement. We can copy Examples from and move them to any course we have tutor access to, also accross different courses. In order to do so, we navigate to the corresponding Example, and right-click on it (hence “context-menu”). In the following, we choose the second Example “Einfache Berechnungen” from Unit 1 within the “Programmieren in der Physik”-course:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>1: Context Menu</p></th>
+<th class="text-align:right head"><p>2: Following the path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><img alt="Workbench_CopyByContextmenu1" src="_images/Workbench_CopyByContextmenu1.png" /></p></td>
+<td class="text-align:right"><p><img alt="Workbench_CopyByContextmenu2" src="_images/Workbench_CopyByContextmenu2.png" /></p></td>
+</tr>
+</tbody>
+</table>
+<p>A context menu appears, giving us several options. Hover over “Duplicate example to course” and follow the subsequently appearing submenus to the destination Excercise. In the example above, it is “Unit 6” within the Course “VTII”. Be very carefull not to accidently select “Move example”, because this will remove the existing Example from the original course and potentially leave its tutors very unhappy!
+You will be asked to provide a new Example-ID. Be sure to give you Example a descriptive name, and keep the course-identifier before the example-name. It is important that every Example-ID only appears once within a course, and MatlabTutor won’t allow us to choose an existing ID. We will call our Example “myNewExample”, and click “OK”. If everything works, we will be see a success-infobox:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><img alt="Workbench_CopyByContextmenu3" src="_images/Workbench_CopyByContextmenu3.png" /></p></th>
+<th class="text-align:right head"><p><img alt="Workbench_CopyByContextmenu4" src="_images/Workbench_CopyByContextmenu4.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>We can now head back to the Excercise we copied the example to, and should be able to see an exact copy of the originating Example. Note that the title of the example has not changed yet, but it carries the new ID we speciefied before. In order to work on the underlying files, we need to “Checkout” the example. Currently, the Example-files are only present on the serverside, after checkout, we will have them loaded into our browser cache and accessible through our MatlabTutor interface. We do that by right-clicking on the Example and clicking “Checkout”:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByContextmenu5" src="_images/Workbench_CopyByContextmenu5.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByContextmenu6" src="_images/Workbench_CopyByContextmenu6.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Once we checked out an Example, we can access its files by clicking the drop-down-marker to its left:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByContextmenu7" src="_images/Workbench_CopyByContextmenu7.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We will discuss the anatomy and meaning of the individual files within the following chapters.</p>
+</div>
+<div class="section" id="copying-examples-by-convert-file">
+<h2>Copying Examples by convert-file<a class="headerlink" href="#copying-examples-by-convert-file" title="Permalink to this headline">¶</a></h2>
+<p>The second way to implement new examples is by creating a so called Convert-file. MatlabTutor provides us with two functions that create such files, and then build new examples from them. Contrary to the Context-menu approach, we have more control of the building process, since we can alter the convertfile in the building process, preventing us from having to change things like filenames, functionnames or the author in many different places. Instead, we can specifiy the things we want to change within the convert-file, and MatlabTutor will automatically apply these changes wherever needed. It can be viewed as a more convenient way of getting to the starting point in defining the examples. No matter which of the two approches you choose, you still need to define your matlab-script, the example-description markdown, and your test-set.</p>
+<div class="section" id="create-a-convert-file">
+<h3>Create a convert-file<a class="headerlink" href="#create-a-convert-file" title="Permalink to this headline">¶</a></h3>
+<p>We will start again by heading to the Example we want our conversion-process to start from, checking it out and viewing the internal files. Below the example listing on the left side, we find three tabs, called “History”, “PreDef” and “Admin”. If we select the “Admin” tab, we find the two important functions mentioned earlier, “mltutorCreateConvertFile” and “mltutorCopyExample”. We can run “mltutorCreateConvertFile” by double-clicking it. This will create our Convert file, and finish by printing “logical 1” into the console. This indicates that the conversion process was in fact successful, and we can now access the conversion file. We do this by refreshing the file-view panel (click the yellow circular arrows in the top left of the file-view, or right-click the Example and click “Refresh” in the context menu). A new file will appear within the Example, called “conversion.json”.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile1" src="_images/Workbench_CopyByConvertFile1_annotated.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile2b" src="_images/Workbench_CopyByConvertFile2b_annotated.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile2c" src="_images/Workbench_CopyByConvertFile2c.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modifying-the-convert-file">
+<h3>Modifying the convert-file<a class="headerlink" href="#modifying-the-convert-file" title="Permalink to this headline">¶</a></h3>
+<p>We can open files by double-clicking them. Their contents will appear in the editor window in the middle section. When inspecting the conversion.json file, we will find something along the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="s2">&quot;newExampleID&quot;</span><span class="p">:</span> <span class="s2">&quot;appsoft.2021.steuer_if_mod&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleSteuerIf.m&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Steuerstrukturen: if-Entscheidung&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Winfried Kernbichler&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;changes&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;if_test&quot;</span><span class="p">:</span> <span class="s2">&quot;if_test&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The content of this file determines how the new example is going to look like after copying it. Most of the changes we can make in here should be obvious.</p>
+<ul>
+<li><p>Start with newExampleID: We want the new Example to be included in the “VT Programmieren 2” course, and have the ID “MyNewExampleID”. Therefore, we change the according line to “vt2.2021.MyNewExampleID”.</p></li>
+<li><p>“main” is referring to the main file including all the MatlabTutor tests. This file must always start with the word “Example”, otherwise the tests we add to it won’t be run. Change it to “ExampleNewMainFile.m”</p></li>
+<li><p>“title” is referring to the example-title that will be displayed within the Example-selection-tree on the left side.</p></li>
+<li><p>“author” should be changed to your name.</p></li>
+<li><p>“changes” is a JSON object (with key-value pairs) and can include multiple entries. In the copy-process, all of the files contained by the original example, along with file-names are going to be parsed. Each occurence of a key-string will then be replaced with the corresponding value-string provided by this object. This allows us to make thorough naming changes, without having to worry about overlooking one variable- or file-name in a of our files. This ensures that all tests are still working afterwards.</p>
+<p>Our original Example includes several file with a filename including “if_test”. We want to change them to new names starting with “my_new_scriptname”. We could write one key-value pair for each “if_test”-file we want to change, but it is not necessary. If we only include “if_test” as a key (without specifying the number of one particular file), then all the files including “if_test” in its name will be changed. This means that the key-value pair “if_test”: “my_new_script” will change the files “if_test1”, “if_test2” and so on (and also references to these files within our code) to “my_new_script1”, “my_new_script2”. In this case, one entry in our changes-object is sufficient to rename several files at once.
+You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pait to the changes-object, separated from other pairs by a comma (“,”).</p>
+</li>
+</ul>
+<p>Note that we also want to rename our main-test-file to “ExampleNewMainFile.m”. Since we already declared that name within the “main” field, it is not necessary to include it in the changes-field.</p>
+<p>Your convert.json should now look similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="s2">&quot;newExampleID&quot;</span><span class="p">:</span> <span class="s2">&quot;vt2.2021.MyNewExampleID2&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleNewMainFile.m&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Have a new title&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Richard Amering&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;changes&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s2">&quot;if_test&quot;</span><span class="p">:</span> <span class="s2">&quot;my_new_scriptname&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When the desired changes are made to the file, you can save them by pressing Ctrl+S on your Keyboard. The file-tab at the top of the editor will indicate the saved changes by not showing a “*” beside the filename.</p>
+</div>
+<div class="section" id="copying-the-example">
+<h3>Copying the Example<a class="headerlink" href="#copying-the-example" title="Permalink to this headline">¶</a></h3>
+<p>In order to create our new example, we have to run the “mltutorCopyExample” script, which is accessible from the “Admin” tab, the same place where we found the “mltutorCreateConvertFile” script earlier. Run the script by double-clicking, and wait for “logical 1” to appear in the console. This indicates a successful copy-process.</p>
+<p>When you successfully converted the Example, it is not yet assigned to any Course or Excercise, and therefore not visible in the excercises view. Instead, we find the newly created Example under the “unassigned” tab, wich is located right under the example-view:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile3" src="_images/Workbench_CopyByConvertFile3.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You will find your example in a folder named with the corresponding ExampleID. You can now check the “meta.json” file, if all its entries are correct. Otherwise, you can still change them within this file, but then you also need to apply these changes to other file- and variable-names within the other Example files. Otherwise, your Example may stop working, or not run the tests correctly. Unlike in the conversion process, the “meta.json” file is not being parsed later, so changes within it are not being applied automatically to other locations.</p>
+</div>
+<div class="section" id="assigning-the-new-example">
+<h3>Assigning the new Example<a class="headerlink" href="#assigning-the-new-example" title="Permalink to this headline">¶</a></h3>
+<p>Since the newly created Example is not yet assigned to any Excercise, it will also not be available to students of the course. In order to assign it, we first have to navigate to the course that should contain the new example. We will select “VT Programmieren 2”. Afterwards, we right-click on the folder containing the example (in the “unassigned” tab), and click “Commit”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that every “Commit” command within the MatlabTutor automatically starts an Example-Validation process. If the example you are working with has failing tests or is invalid in any other sense, you are not able to assign it to an excercise until these issues are resolved and the validation process succeeds.</p>
+</div>
+<p>After the validation finished, you will see a new window, allowing you to specify the target exercise. If the excercise you anticipated is not shown, it is likely that you did not navigate to the correct course beforehand. You can still cancel the process and then select the proper course. Note that a “Commit successful” message will be displayed, even if you cancelled the commit-process.</p>
+<p>Choose the correct Excercise from the window by clicking on it. The selected Excercise will be indicated by a slighlty darker font. This can be very subtle and easily be missed. If you are unsure which Excercise is selected, you can click it again of course. We will select Excercise “Unit 5”, and then click “OK”. The unassigned Example should now be vanished from the “unassigned” tab, and moved to the selected Excercise instead.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile4" src="_images/Workbench_CopyByConvertFile4.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Workbench_CopyByConvertFile5" src="_images/Workbench_CopyByConvertFile5.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Workbench.html" title="previous page">Workbench</a>
+    <a class='right-next' id="next-link" href="notebooks.html" title="next page">Content with notebooks</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Richard Amering<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
