@@ -1,4 +1,5 @@
-# Verifying Plots
+(GraphicsRequests)=
+# GraphicsRequests
 
 There are various options for varifying the correct appearance of plots, and the corresponding tests are collected within the "obj.mlt.mltutorGraphicsRequest" object. We will describe the available tests and their signature in this chapter.
 
@@ -59,6 +60,9 @@ The following code will check if the [axis-mode](http://www.mathworks.com/help/m
 ```
 this.mlt.mltutorGraphicsRequest.figure_1.axes_1.request = {'xlim','ylim','PlotBoxAspectRatio','PlotBoxAspectRatioMode'}
 ```
+Properties we can check here include: 'xlim','xlabel','ylabel','title','yscale'...
+
+
 For an exhaustive list of properties that can be checked, see [Axes Properties](https://de.mathworks.com/help/matlab/ref/matlab.graphics.axis.axes-properties.html)
 
 

@@ -3,7 +3,7 @@
 
 MatlabTutor provides various tests that allow us to test different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within the "Example...".m file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section (Anatomy of Example.m, add link here)
 
-
+(CountCommand)=
 ## mltutorCountCommand
 ```
 [count_test,count,stat] = mltutorCountCommand(filename,commands,max_count,min_count);
@@ -11,13 +11,13 @@ MatlabTutor provides various tests that allow us to test different aspects of st
 
 Checks if the number of command-calls is within min_count and max_count (including min and max limits). Is usually put inside the try-catch block of a test, along with the script/function call.
 
-filename: specifies the matlab-file that this test is to be run on. Has to be a character-vector, ending with ".m"
+**filename**: specifies the matlab-file that this test is to be run on. Has to be a character-vector, ending with ".m"
 
-commands: a cell array containing the commands in form of character-vectors. This can likely include any command known to Matlab, for example 'tan', 'sqrt', 'plot', 'for', 'try' etc.
+**commands**: a cell array containing the commands in form of character-vectors. This can likely include any command known to Matlab, for example 'tan', 'sqrt', 'plot', 'for', 'try' etc.
 
-max_count: Row-vector with the same number of elements as items in commands. First element in the vector corresponds to first command in commands-array, and so on. The test will verify that commands(i) within the specified matlab-file are is present at most max_count(i). If no upper limit of occurence should be specified, include nan in the corresponding position.
+**max_count**: Row-vector with the same number of elements as items in commands. First element in the vector corresponds to first command in commands-array, and so on. The test will verify that commands(i) within the specified matlab-file are is present at most max_count(i). If no upper limit of occurence should be specified, include nan in the corresponding position.
 
-min_count: Identical to max_count, but specifying the minimum number of occurence. If no lower limit of occurence should be specified, inclue nan in the corresponding position.
+**min_count**: Identical to max_count, but specifying the minimum number of occurence. If no lower limit of occurence should be specified, inclue nan in the corresponding position.
 ```{note}
 This test does not need to be referenced as a method of the Example-Class. In short, write mltutorCountCommand(), not obj.mltutorCountCommand()
 ```

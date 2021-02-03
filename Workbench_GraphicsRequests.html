@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verifying Plots &#8212; My sample book</title>
+    <title>GraphicsRequests &#8212; The MatlabTutor Documentation Page</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -75,10 +75,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/ITPTutorLogo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">My sample book</h1>
+  <h1 class="site-logo" id="site-title">The MatlabTutor Documentation Page</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -110,13 +110,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="Workbench_AnatomyOfWorkingExample.html">
+     Anatomy of an Example.m-file
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Workbench_AvailableTests.html">
      Available Tests
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Verifying Plots
+     GraphicsRequests
     </a>
    </li>
   </ul>
@@ -252,8 +257,8 @@
         
               <div>
                 
-  <div class="section" id="verifying-plots">
-<h1>Verifying Plots<a class="headerlink" href="#verifying-plots" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="graphicsrequests">
+<span id="id1"></span><h1>GraphicsRequests<a class="headerlink" href="#graphicsrequests" title="Permalink to this headline">¶</a></h1>
 <p>There are various options for varifying the correct appearance of plots, and the corresponding tests are collected within the “obj.mlt.mltutorGraphicsRequest” object. We will describe the available tests and their signature in this chapter.</p>
 <div class="section" id="specifying-the-correct-figure-and-axis">
 <h2>Specifying the correct figure and axis<a class="headerlink" href="#specifying-the-correct-figure-and-axis" title="Permalink to this headline">¶</a></h2>
@@ -307,6 +312,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xlim&#39;</span><span class="p">,</span><span class="s1">&#39;ylim&#39;</span><span class="p">,</span><span class="s1">&#39;PlotBoxAspectRatio&#39;</span><span class="p">,</span><span class="s1">&#39;PlotBoxAspectRatioMode&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
+<p>Properties we can check here include: ‘xlim’,’xlabel’,’ylabel’,’title’,’yscale’…</p>
 <p>For an exhaustive list of properties that can be checked, see <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/matlab.graphics.axis.axes-properties.html">Axes Properties</a></p>
 </div>
 </div>

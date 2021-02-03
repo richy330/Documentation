@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Implementing Tutor Examples &#8212; My sample book</title>
+    <title>Implementing Tutor Examples &#8212; The MatlabTutor Documentation Page</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -76,10 +76,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/ITPTutorLogo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">My sample book</h1>
+  <h1 class="site-logo" id="site-title">The MatlabTutor Documentation Page</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -122,7 +122,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Workbench_GraphicsRequests.html">
-     Verifying Plots
+     GraphicsRequests
     </a>
    </li>
   </ul>
@@ -397,8 +397,8 @@ You will be asked to provide a new Example-ID. Be sure to give you Example a des
 <li><p>“main” is referring to the main file including all the MatlabTutor tests. This file must always start with the word “Example”, otherwise the tests we add to it won’t be run. Change it to “ExampleNewMainFile.m”</p></li>
 <li><p>“title” is referring to the example-title that will be displayed within the Example-selection-tree on the left side.</p></li>
 <li><p>“author” should be changed to your name.</p></li>
-<li><p>“changes” is a JSON object (with key-value pairs) and can include multiple entries. In the copy-process, all of the files contained by the original example, along with file-names are going to be parsed. Each occurence of a key-string will then be replaced with the corresponding value-string provided by this object. This allows us to make thorough naming changes, without having to worry about overlooking one variable- or file-name in a of our files. This ensures that all tests are still working afterwards.</p>
-<p>Our original Example includes several file with a filename including “if_test”. We want to change them to new names starting with “my_new_scriptname”. We could write one key-value pair for each “if_test”-file we want to change, but it is not necessary. If we only include “if_test” as a key (without specifying the number of one particular file), then all the files including “if_test” in its name will be changed. This means that the key-value pair “if_test”: “my_new_script” will change the files “if_test1”, “if_test2” and so on (and also references to these files within our code) to “my_new_script1”, “my_new_script2”. In this case, one entry in our changes-object is sufficient to rename several files at once.
+<li><p>“changes” is a JSON object (with key-value pairs) and can include multiple entries. In the copy-process, all of the files contained by the original example, along with file-names are going to be parsed. Each occurence of a key-string will then be replaced with the corresponding value-string provided by this object. This allows us to make thorough naming changes, without having to worry about overlooking one variable- or file-name in one of our files. This ensures that all tests are still working afterwards.</p>
+<p>Our original Example includes several files with a filename including “if_test”. We want to change them to new names starting with “my_new_scriptname”. We could write one key-value pair for each “if_test”-file we want to change, but it is not necessary. If we only include “if_test” as a key (without specifying the number of one particular file), then all the files including “if_test” in its name will be changed. This means that the key-value pair “if_test”: “my_new_script” will change the files “if_test1”, “if_test2” and so on (and also references to these files within our code) to “my_new_script1”, “my_new_script2”. In this case, one entry in our changes-object is sufficient to rename several files at once.
 You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pait to the changes-object, separated from other pairs by a comma (“,”).</p>
 </li>
 </ul>
