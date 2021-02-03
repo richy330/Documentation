@@ -441,7 +441,17 @@ Provide matlab file-names character arrays.</p>
 </div>
 <div class="section" id="links">
 <h4>links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h4>
-<p>Similar to <a class="reference internal" href="#usedfunctions"><span class="std std-ref">Used Functions</span></a>, the students can be provided with additional links under the Links tab. For example, the above mentioned <a class="reference internal" href="#propertiesblock"><span class="std std-ref">code</span></a> will include the following links:</p>
+<p>Similar to <a class="reference internal" href="#usedfunctions"><span class="std std-ref">Used Functions</span></a>, the students can be provided with additional links under the Links tab. For example, the following code will include these links:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">links</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;appsoftkapitel://2&#39;</span><span class="p">,</span><span class="s1">&#39;Skriptum Einfuehrungskapitel&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;matlabroot://&#39;</span><span class="p">,</span><span class="s1">&#39;Matlab Hilfe&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;mltutorhint://Strichpunkt&#39;</span><span class="p">,</span><span class="s1">&#39;Hints zu Strichpunkt&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;mltutorhint://Komplexe_Zahlen&#39;</span><span class="p">,</span><span class="s1">&#39;Hints zu komplexen Zahlen&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;matlabdocu://elementary-math&#39;</span><span class="p">,</span><span class="s1">&#39;Elementare Mathematik&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;matlabpublish://simplestart1&#39;</span><span class="p">,</span><span class="s1">&#39;Einfache Einfuerung in Matlab&#39;</span><span class="p">}</span> <span class="o">...</span>
+<span class="p">}</span>  
+</pre></div>
+</div>
 <p><img alt="LinksTab" src="_images/LinksTab.png" /></p>
 <p>When adding links to this field, it is necessary to use Link-Abreviations, as can be found under the Administration-perspective. If regular html-links are found within this field, Validation may break with the error-code “Bad Subscript”.</p>
 </div>

@@ -92,9 +92,22 @@ siehe 2.6 'plot_res.m'
 #### programTags = {}
 
 #### links
-Similar to [Used Functions](usedFunctions), the students can be provided with additional links under the Links tab. For example, the above mentioned [code](propertiesBlock) will include the following links:
+Similar to [Used Functions](usedFunctions), the students can be provided with additional links under the Links tab. For example, the following code will include these links:
 
+
+
+```
+links = { ...
+    {'appsoftkapitel://2','Skriptum Einfuehrungskapitel'}, ...
+    {'matlabroot://','Matlab Hilfe'}, ...
+    {'mltutorhint://Strichpunkt','Hints zu Strichpunkt'}, ...
+    {'mltutorhint://Komplexe_Zahlen','Hints zu komplexen Zahlen'}, ...
+    {'matlabdocu://elementary-math','Elementare Mathematik'}, ...
+    {'matlabpublish://simplestart1','Einfache Einfuerung in Matlab'} ...
+}  
+```
 ![LinksTab](tutor_screenshots/LinksTab.png)
+
 
 When adding links to this field, it is necessary to use Link-Abreviations, as can be found under the Administration-perspective. If regular html-links are found within this field, Validation may break with the error-code "Bad Subscript".
 
