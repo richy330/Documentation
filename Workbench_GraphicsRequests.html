@@ -246,6 +246,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expanding-the-notion-to-other-types-of-plots">
+   Expanding the notion to other types of plots
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -266,11 +271,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span>
 </pre></div>
 </div>
-<p>“figure_n” is referencing towards different <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/figure.html">figures</a>, while axes_1 corresponds to the <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/axes.html">Matlab-axes object</a>. Typically, you will not have to call any axes other than axes_1.</p>
+<p>“figure_n” is referencing towards different <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/figure.html">figures</a>, while axes_1 corresponds to the <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/axes.html">Matlab-axes object</a>. Typically, you will not have to call any axes other than axes_1, except if you include <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/subplot.html">subplots</a> in your figures.</p>
 </div>
 <div class="section" id="properties-of-the-axes-1-object">
 <h2>Properties of the axes_1 object<a class="headerlink" href="#properties-of-the-axes-1-object" title="Permalink to this headline">¶</a></h2>
-<p>The axes_1 object itself provides different subfields that we can access. These include:</p>
+<p>The axes_1 object itself provides different subfields that we can access, depending on the type of plot. Inthe case of a regular <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/plot.html">plot</a>, these include:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#line-n"><span class="std std-ref">axes_1.line_n</span></a></p></li>
 <li><p><a class="reference internal" href="#title-1"><span class="std std-ref">axes_1.title_1</span></a></p></li>
@@ -315,6 +320,110 @@
 <p>Properties we can check here include: ‘xlim’,’xlabel’,’ylabel’,’title’,’yscale’…</p>
 <p>For an exhaustive list of properties that can be checked, see <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/matlab.graphics.axis.axes-properties.html">Axes Properties</a></p>
 </div>
+</div>
+<div class="section" id="expanding-the-notion-to-other-types-of-plots">
+<h2>Expanding the notion to other types of plots<a class="headerlink" href="#expanding-the-notion-to-other-types-of-plots" title="Permalink to this headline">¶</a></h2>
+<p>At the beginning, it may be unclear which fields we can specify on which types of plots. But there is a simple strategy to find the available subfields, which we will demonstrate here. First, create a new figure, that you want to include in your Graphics Requests. We will choose to include 2 subplots, with 2 <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/errorbar.html">errorbar</a> plots each:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">figure</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="n">on</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="n">off</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x-position&quot;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">({</span><span class="s2">&quot;u_x&quot;</span><span class="p">,</span> <span class="s2">&quot;u_y&quot;</span><span class="p">})</span>
+<span class="n">title</span><span class="p">(</span><span class="s2">&quot;Data aggregated by common x-position&quot;</span><span class="p">)</span>
+
+
+<span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="n">on</span>
+<span class="n">errorbar</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;bx&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="n">off</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x-position&quot;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">({</span><span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Notice that we saved a handle-reference to the figure in the variable ‘f’. This allows us to inspect the ‘Children’ or elements of the figure, like axes, legends, etc.
+These ‘Children’ are the subfields that we used earlier when specifying our mltutorGraphicsRequest.
+Let’s inspect the Children with the following line of code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">Children</span>
+
+  <span class="mi">4</span><span class="n">x1</span> <span class="n">graphics</span> <span class="n">array</span><span class="p">:</span>
+
+  <span class="n">Legend</span>    <span class="p">(</span><span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">)</span>
+  <span class="n">Axes</span>
+  <span class="n">Legend</span>    <span class="p">(</span><span class="n">u_x</span><span class="p">,</span> <span class="n">u_y</span><span class="p">)</span>
+  <span class="n">Axes</span>      <span class="p">(</span><span class="n">Data</span> <span class="n">aggregated</span> <span class="n">by</span> <span class="n">common</span> <span class="n">x</span><span class="o">-</span><span class="n">position</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We find a so called <a class="reference external" href="https://de.mathworks.com/help/matlab/creating_plots/concatenating-handles-into-arrays.html">graphics array</a>, with 4 elements in it. 2 of them are legends, the other 2 axes. Like any other array in matlab, we can reference into the array with indexes. For example, the following line of code will reference the first axes-object (which is the first subplot in our figure):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">Children</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  
+  <span class="n">ans</span> <span class="o">=</span> 
+
+  <span class="n">Axes</span> <span class="k">with</span> <span class="n">properties</span><span class="p">:</span>
+             <span class="n">XLim</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">10</span><span class="p">]</span>
+             <span class="n">YLim</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">12</span><span class="p">]</span>
+           <span class="n">XScale</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span>
+           <span class="n">YScale</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span>
+    <span class="n">GridLineStyle</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span>
+         <span class="n">Position</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1300</span> <span class="mf">0.1100</span> <span class="mf">0.7750</span> <span class="mf">0.3412</span><span class="p">]</span>
+            <span class="n">Units</span><span class="p">:</span> <span class="s1">&#39;normalized&#39;</span>
+</pre></div>
+</div>
+<p>This is how we can find the available subfields. Matlabtutor on the other hand does not use indexes in the way we do. If we want our mltutorGraphicsRequest to target the same subplot, we would write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span>
+</pre></div>
+</div>
+<p>All of the properties in the code output above can be tested with the request-field, for example by writing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span>
+<span class="s1">&#39;XLim&#39;</span><span class="p">,</span> <span class="s1">&#39;YScale&#39;</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If we write ‘axes_2’ instead, we would find the second subplot, or the same element as we would get by by calling ‘f.Children(4)’</p>
+<p>Now we have found the four subfields we can call on the figure-object within our mltutorGraphicsRequest (axes_1, axes_2, legend_1, legend_2). But we have still not managed to find the correct field for testing if the correct dataset was plotted. Let’s continue to find the next subfields, on the axes_1-object, or one layer deeper. Again, we use the Children-property, this time on one of the axes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">Children</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">Children</span>
+
+  <span class="n">ans</span> <span class="o">=</span> 
+
+  <span class="mi">2</span><span class="n">x1</span> <span class="n">ErrorBar</span> <span class="n">array</span><span class="p">:</span>
+
+  <span class="n">ErrorBar</span>    <span class="p">(</span><span class="n">v_y</span><span class="p">)</span>
+  <span class="n">ErrorBar</span>    <span class="p">(</span><span class="n">v_x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We found 2 errorbar objects belonging to the axes. These are the 2 dataseries that we plotted by using <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/hold.html">hold</a>. If we had used a regular plot instead, these would be line-objects instead. Continue this process further, and inspect the second of these errorbars:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">Children</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">Children</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+  <span class="n">ans</span> <span class="o">=</span> 
+
+  <span class="n">ErrorBar</span> <span class="p">(</span><span class="n">v_x</span><span class="p">)</span> <span class="k">with</span> <span class="n">properties</span><span class="p">:</span>
+
+             <span class="n">Color</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+         <span class="n">LineStyle</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span>
+         <span class="n">LineWidth</span><span class="p">:</span> <span class="mf">0.5000</span>
+            <span class="n">Marker</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span>
+             <span class="n">XData</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span><span class="p">]</span>
+             <span class="n">YData</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">9</span> <span class="mi">8</span> <span class="mi">7</span> <span class="mi">6</span> <span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">XNegativeDelta</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="n">x0</span> <span class="n">double</span><span class="p">]</span>
+    <span class="n">XPositiveDelta</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="n">x0</span> <span class="n">double</span><span class="p">]</span>
+    <span class="n">YNegativeDelta</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="n">x10</span> <span class="n">double</span><span class="p">]</span>
+    <span class="n">YPositiveDelta</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="n">x10</span> <span class="n">double</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>All of these properties are again testable by the request-field, meaning we can stop here. If we called ‘Children’ once more on the ErrorBar object, we would only find an empty array, meaning that matlab did not assign any further elements to the plot under ErrorBar.</p>
+<p>If we would like to the test the appearance of the errorbar-plot, we simply use the following syntax, as we did before:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">errorbar_2</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span>
+<span class="s1">&#39;XData&#39;</span><span class="p">,</span> <span class="s1">&#39;YData&#39;</span><span class="p">,</span> <span class="s1">&#39;XNegativeDelta&#39;</span><span class="p">,</span> <span class="s1">&#39;XPositiveDelta&#39;</span><span class="p">,</span><span class="o">...</span>
+<span class="s1">&#39;YNegativeDelta&#39;</span><span class="p">,</span> <span class="s1">&#39;YPositiveDelta&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker&#39;</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This strategy will allow you to find the correct set of subfields for testing plots, even if they are not mentioned within this documentation.</p>
 </div>
 </div>
 
