@@ -1,4 +1,0 @@
-Creating new Examples
-=====
-
-Test

@@ -6,4 +6,6 @@
 - file: Workbench
   sections:
     - file: Workbench_ExampleCreation
-    - file: notebooks
+    - file: Workbench_AnatomyOfWorkingExample
+    - file: Workbench_AvailableTests
+    - file: Workbench_GraphicsRequests

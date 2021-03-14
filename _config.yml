@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
+title: The MatlabTutor Documentation Page
 author: Richard Amering
-logo: logo.png
+logo: ITPTutorLogo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -26,3 +26,6 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  
+parse:
+  myst_extended_syntax: true
