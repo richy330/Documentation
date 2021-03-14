@@ -104,7 +104,7 @@ ylabel("v")
 legend({"v_x", "v_y"})
 ```
 
-Notice that we saved a handle-reference to the figure in the variable 'f'. This allows us to inspect the 'Children' or elements within the figure. When we create figures and plots in Matlab, there is a certain hirarchy set up in the background. At the top lives a figure, with its children, that are for example different subplots. These Children can have subordinates themselves, for example can a subplot contain different dataseries. When we call the 'Children' property on such elements, we get an array containing the descendants of the property.
+Notice that we saved a handle-reference to the figure in the variable 'f'. This allows us to inspect the 'Children' or elements within the figure. When we create figures and plots in Matlab, there is a certain hierarchy set up in the background. At the top lives a figure, with its children, that are for example different subplots. These Children can have subordinates themselves, for example can a subplot contain different dataseries. When we call the 'Children' property on such elements, we get an array containing the descendants of the property.
 These 'Children' are the subfields that we used earlier when specifying our mltutorGraphicsRequest.
 Let's inspect the Children with the following line of code:
 

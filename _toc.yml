@@ -9,3 +9,7 @@
     - file: Workbench_AnatomyOfWorkingExample
     - file: Workbench_AvailableTests
     - file: Workbench_GraphicsRequests
+
+- file: Administration
+  sections:
+    - file: Administration_Overview

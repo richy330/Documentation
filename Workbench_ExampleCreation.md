@@ -1,6 +1,6 @@
 (example_implementation)=
-Implementing Tutor Examples
-=====
+# Implementing Tutor Examples
+
 Implementing TutorExamples can be done under the Perspective "Workbench", so be sure to select it, and then choose the tab "Examples" in the top left. All the following operations will take place within this view, although the selected course may vary.
 
 ````{panels}
@@ -125,7 +125,7 @@ Your convert.json should now look similar to the following:
 
 When the desired changes are made to the file, you can save them by pressing Ctrl+S on your Keyboard. The file-tab at the top of the editor will indicate the saved changes by not showing a "\*" beside the filename.
 
-### Copying the Example
+### Copying an Example
 
 In order to create our new example, we have to run the "mltutorCopyExample" script, which is accessible from the "Admin" tab, the same place where we found the "mltutorCreateConvertFile" script earlier. Run the script by double-clicking, and wait for "logical 1" to appear in the console. This indicates a successful copy-process.
 
@@ -139,12 +139,12 @@ When you successfully converted the Example, it is not yet assigned to any Cours
 
 You will find your example in a folder named with the corresponding ExampleID. You can now check the "meta.json" file, if all its entries are correct. Otherwise, you can still change them within this file, but then you also need to apply these changes to other file- and variable-names within the other Example files. Otherwise, your Example may stop working, or not run the tests correctly. Unlike in the conversion process, the "meta.json" file is not being parsed later, so changes within it are not being applied automatically to other locations.
 
-### Assigning the new Example
-
+(committing_Examples)=
+### Commiting a new Example
 Since the newly created Example is not yet assigned to any Excercise, it will also not be available to students of the course. In order to assign it, we first have to navigate to the course that should contain the new example. We will select "VT Programmieren 2". Afterwards, we right-click on the folder containing the example (in the "unassigned" tab), and click "Commit".
 
 ```{note}
-Note that every "Commit" command within the MatlabTutor automatically starts an Example-Validation process. If the example you are working with has failing tests or is invalid in any other sense, you are not able to assign it to an excercise until these issues are resolved and the validation process succeeds.
+Note that every "Commit" command within the MatlabTutor automatically starts an Example-Validation process. If the example you are working with has failing tests or is invalid in any other sense, you will be unable to assign it to an excercise until these issues are resolved and the validation process succeeds.
 ```
 
 After the validation finished, you will see a new window, allowing you to specify the target exercise. If the excercise you anticipated is not shown, it is likely that you did not navigate to the correct course beforehand. You can still cancel the process and then select the proper course. Note that a "Commit successful" message will be displayed, even if you cancelled the commit-process.
