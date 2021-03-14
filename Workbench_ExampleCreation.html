@@ -45,8 +45,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -129,6 +127,15 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Administration.html">
+   Administration
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -185,11 +192,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/richy330/richy330.github.io"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWorkbench_ExampleCreation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FWorkbench_ExampleCreation.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -241,13 +248,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copying-the-example">
-     Copying the Example
+    <a class="reference internal nav-link" href="#copying-an-example">
+     Copying an Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#assigning-the-new-example">
-     Assigning the new Example
+    <a class="reference internal nav-link" href="#commiting-a-new-example">
+     Commiting a new Example
     </a>
    </li>
   </ul>
@@ -418,8 +425,8 @@ You can search through the original files and find additional code changes you w
 </div>
 <p>When the desired changes are made to the file, you can save them by pressing Ctrl+S on your Keyboard. The file-tab at the top of the editor will indicate the saved changes by not showing a “*” beside the filename.</p>
 </div>
-<div class="section" id="copying-the-example">
-<h3>Copying the Example<a class="headerlink" href="#copying-the-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="copying-an-example">
+<h3>Copying an Example<a class="headerlink" href="#copying-an-example" title="Permalink to this headline">¶</a></h3>
 <p>In order to create our new example, we have to run the “mltutorCopyExample” script, which is accessible from the “Admin” tab, the same place where we found the “mltutorCreateConvertFile” script earlier. Run the script by double-clicking, and wait for “logical 1” to appear in the console. This indicates a successful copy-process.</p>
 <p>When you successfully converted the Example, it is not yet assigned to any Course or Excercise, and therefore not visible in the excercises view. Instead, we find the newly created Example under the “unassigned” tab, wich is located right under the example-view:</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -435,12 +442,12 @@ You can search through the original files and find additional code changes you w
 </div>
 <p>You will find your example in a folder named with the corresponding ExampleID. You can now check the “meta.json” file, if all its entries are correct. Otherwise, you can still change them within this file, but then you also need to apply these changes to other file- and variable-names within the other Example files. Otherwise, your Example may stop working, or not run the tests correctly. Unlike in the conversion process, the “meta.json” file is not being parsed later, so changes within it are not being applied automatically to other locations.</p>
 </div>
-<div class="section" id="assigning-the-new-example">
-<h3>Assigning the new Example<a class="headerlink" href="#assigning-the-new-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="commiting-a-new-example">
+<span id="committing-examples"></span><h3>Commiting a new Example<a class="headerlink" href="#commiting-a-new-example" title="Permalink to this headline">¶</a></h3>
 <p>Since the newly created Example is not yet assigned to any Excercise, it will also not be available to students of the course. In order to assign it, we first have to navigate to the course that should contain the new example. We will select “VT Programmieren 2”. Afterwards, we right-click on the folder containing the example (in the “unassigned” tab), and click “Commit”.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that every “Commit” command within the MatlabTutor automatically starts an Example-Validation process. If the example you are working with has failing tests or is invalid in any other sense, you are not able to assign it to an excercise until these issues are resolved and the validation process succeeds.</p>
+<p>Note that every “Commit” command within the MatlabTutor automatically starts an Example-Validation process. If the example you are working with has failing tests or is invalid in any other sense, you will be unable to assign it to an excercise until these issues are resolved and the validation process succeeds.</p>
 </div>
 <p>After the validation finished, you will see a new window, allowing you to specify the target exercise. If the excercise you anticipated is not shown, it is likely that you did not navigate to the correct course beforehand. You can still cancel the process and then select the proper course. Note that a “Commit successful” message will be displayed, even if you cancelled the commit-process.</p>
 <p>Choose the correct Excercise from the window by clicking on it. The selected Excercise will be indicated by a slighlty darker font. This can be very subtle and easily be missed. If you are unsure which Excercise is selected, you can click it again of course. We will select Excercise “Unit 5”, and then click “OK”. The unassigned Example should now be vanished from the “unassigned” tab, and moved to the selected Excercise instead.</p>

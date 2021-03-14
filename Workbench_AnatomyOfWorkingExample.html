@@ -45,8 +45,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -129,6 +127,15 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Administration.html">
+   Administration
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -185,11 +192,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/richy330/richy330.github.io"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWorkbench_AnatomyOfWorkingExample.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FWorkbench_AnatomyOfWorkingExample.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -298,6 +305,11 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comments">
+       Comments
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#this-init">
        this.init()
       </a>
@@ -331,6 +343,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validating-and-committing">
+   Validating and Committing
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -352,7 +369,7 @@
 <div class="section" id="naming">
 <h2>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
 <p>In order for the Example to work correctly, a naming structure has to be followed: Each Example.m filename must start with “Example”, followed by additional characters of your choice. Inside the file, a class with the <strong>same name</strong> has to be defined.
-A valid Example.m file-name would be: “ExampleMathConstants.m”, with a class named “ExampleMathConstants”.
+A valid Example.m file-name would be: <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants.m</span></code>, with a class named <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants</span></code>.
 The class will contain certain properties and methods, which again have to follow a naming structure. If this structure is neglected, the Tutor Environment may ignore your Example setup, or not Validate your Example at all. If you follow the following code-examples, everything should work out fine.</p>
 </div>
 <div class="section" id="file-content">
@@ -360,7 +377,7 @@ The class will contain certain properties and methods, which again have to follo
 <p>The Example.m file contains a <a class="reference external" href="https://de.mathworks.com/help/matlab/object-oriented-programming.html">Matlab-class</a>, which defines tests and additional data. Meta-information like additional files and links are provided as class-properties, while tests are defined as methods, the so called matlabTutorTests, which again have to follow a naming-structure.</p>
 <div class="section" id="class-definition">
 <h3>Class-definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h3>
-<p>As usual, the class defined within the Example.m file should be consistent with the file-name. If we name our class “ExampleMathConstants”, it should be placed in a file called “ExampleMathConstants.m”. In order for the tests to be working, we have to inherit from the class “MatlabTutorExample”. A correct class-definition would look like the following:</p>
+<p>As usual, the class defined within the <code class="docutils literal notranslate"><span class="pre">Example.m</span></code> file should be consistent with the file-name. If we name our class <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants</span></code>, it should be placed in a file called <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants.m</span></code>. In order for the tests to be working, we have to inherit from the class <code class="docutils literal notranslate"><span class="pre">MatlabTutorExample</span></code>. A correct class-definition would look like the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classdef</span> <span class="n">ExampleMathConstants</span> <span class="o">&lt;</span> <span class="n">MatlabTutorExample</span>
     <span class="o">%</span> <span class="n">Mathematische</span> <span class="n">Konstanten</span><span class="p">,</span> <span class="n">Format</span>
     <span class="o">%</span>
@@ -402,8 +419,8 @@ The class will contain certain properties and methods, which again have to follo
 <div class="section" id="usedfunctions">
 <span id="id1"></span><h4>usedFunctions<a class="headerlink" href="#usedfunctions" title="Permalink to this headline">¶</a></h4>
 <p>When working on Examples, students can be provided with additional resources. One of these are the Used Functions. If Matlab-functions or statements are declared within this field (different entries provided as char-arrays), MatlabTutor will include the according references in the Used Functions Tab, visible to students working on the example. The references provided by MatlabTutor will automatically be linked towards the correct Matlab Help page.
-For Example, the above declaration of used functions will provide the following links within the Used Functions Tab:</p>
-<p><img alt="UsedFunctionsTab" src="_images/UsedFunctionsTab.png" /></p>
+For Example, the declaration of used functions <a class="reference internal" href="#propertiesblock"><span class="std std-ref">above</span></a> will provide the following links within the Used Functions Tab:</p>
+<a class="reference internal image-reference" href="_images/UsedFunctionsTab.png"><img alt="UsedFunctionsTab" class="align-center" src="_images/UsedFunctionsTab.png" style="width: 600px;" /></a>
 <p>Providing Used Functions is optional, if no help should be provided (for example, in an exam), set the usedFunctions field to an empty cell array.</p>
 </div>
 <div class="section" id="requiredsolutions">
@@ -452,7 +469,7 @@ Provide matlab file-names character arrays.</p>
 <span class="p">}</span>  
 </pre></div>
 </div>
-<p><img alt="LinksTab" src="_images/LinksTab.png" /></p>
+<a class="reference internal image-reference" href="_images/LinksTab.png"><img alt="LinksTab" class="align-center" src="_images/LinksTab.png" style="width: 500px;" /></a>
 <p>When adding links to this field, it is necessary to use Link-Abreviations, as can be found under the Administration-perspective. If regular html-links are found within this field, Validation may break with the error-code “Bad Subscript”.</p>
 </div>
 </div>
@@ -507,10 +524,20 @@ The general structure is the following:</p>
 <span class="n">end</span>
 </pre></div>
 </div>
-<p>The methods-block can contain one or more matlabTutorTest-functions. You are not limitted to a single test-method, and you can also include multiple different tests within a single method (e.g. GraphicsRequests, CommandCounts, etc). In order for the tests to work properly, a naming structure has to be followed: Each method within the method-block needs a name starting with “matlabTutorTest”, followed by characters of your choice. Deviating from this naming structure may prevent your tests from working. A good practice is to name consecutive tests “matlabTutorTest_test1”, “matlabTutorTest_test2” and so on. In most cases, it should be sufficient to work with a single test-method, though.</p>
+<p>The methods-block can contain one or more matlabTutorTest-functions. You are not limitted to a single test-method, and you can also include multiple different tests within a single method (e.g. GraphicsRequests, CommandCounts, etc). In order for the tests to work properly, a naming structure has to be followed: Each method within the method-block needs a name starting with “matlabTutorTest”, followed by characters of your choice. Deviating from this naming structure may prevent your tests from working. A good practice is to name consecutive tests <code class="docutils literal notranslate"><span class="pre">matlabTutorTest_test1</span></code>, <code class="docutils literal notranslate"><span class="pre">matlabTutorTest_test2</span></code> and so on. In most cases, it should be sufficient to work with a single test-method, though.</p>
+<div class="section" id="comments">
+<h4>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h4>
+<p>The first two lines within a test should be comments, as in the example <a class="reference internal" href="#methodsblock"><span class="std std-ref">above</span></a>. While comments right after class- or function-definitions usually are for <a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/add-help-for-your-program.html">help or documentation</a> pruposes, MatlabTutor uses them to provide additional information about executed tests. Students can see this information after running tests on their Examples. For example, the following code will generate the corresponding output, presented after running the tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">matlabTutorTest_test1</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">Testet</span> <span class="n">alle</span> <span class="n">notwendigen</span> <span class="n">Variablen</span><span class="o">.</span>
+    <span class="o">%</span> <span class="nd">@name</span> <span class="n">Test</span> <span class="nb">all</span> <span class="n">variables</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/ComputingTutor_TestNameAndDescription_med.png"><img alt="ComputingTutor_TestNameAndDescription_med" class="align-center" src="_images/ComputingTutor_TestNameAndDescription_med.png" style="width: 400px;" /></a>
+</div>
 <div class="section" id="this-init">
 <h4>this.init()<a class="headerlink" href="#this-init" title="Permalink to this headline">¶</a></h4>
-<p>The first line of code within our Test-method should be calling the init()-method on our object (remember that we inherited from “MatlabTutorExample”).</p>
+<p>The first line of code within our Test-method should be calling the <code class="docutils literal notranslate"><span class="pre">init()</span></code>-method on our object (remember that we inherited from <code class="docutils literal notranslate"><span class="pre">MatlabTutorExample</span></code>).</p>
 </div>
 <div class="section" id="variable-checks">
 <h4>Variable Checks<a class="headerlink" href="#variable-checks" title="Permalink to this headline">¶</a></h4>
@@ -521,7 +548,7 @@ The general structure is the following:</p>
 <span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInternalVariableDisplay</span> <span class="o">=</span> <span class="p">{};</span>
 </pre></div>
 </div>
-<p>Arguably, the most important one is mltutorVariableCheck. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.</p>
+<p>Arguably, the most important one is <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.</p>
 <p>Further Information about how Variable Checks work can be found within the <a class="reference internal" href="Workbench_AvailableTests.html#availabletests"><span class="std std-ref">Available Tests</span></a>-section</p>
 </div>
 <div class="section" id="settings-before-tests">
@@ -529,12 +556,12 @@ The general structure is the following:</p>
 </div>
 <div class="section" id="graphicsrequests">
 <h4>GraphicsRequests<a class="headerlink" href="#graphicsrequests" title="Permalink to this headline">¶</a></h4>
-<p>The GraphicsRequests-fields allow us to check the correctness of figures and plots. The general structure is to assign cell-arrays to one or more of several “request”-fields. The cell-array contains the features to be tested, specified as char-arrays. For example, the following code-example will assert correct x-limits, x- and y-labels, as well as the title:</p>
+<p>The GraphicsRequests-fields allow us to check the correctness of figures and plots. The general structure is to assign cell-arrays to one or more of several <code class="docutils literal notranslate"><span class="pre">request</span></code>-fields. The cell-array contains the features to be tested, specified as char-arrays. For example, the following code-example will assert correct x-limits, x- and y-labels, as well as the title:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="o">...</span>
 <span class="p">{</span><span class="s1">&#39;xlim&#39;</span><span class="p">,</span><span class="s1">&#39;xlabel&#39;</span><span class="p">,</span><span class="s1">&#39;ylabel&#39;</span><span class="p">,</span><span class="s1">&#39;title&#39;</span><span class="p">};</span>
 </pre></div>
 </div>
-<p>This is achieved by assigning the cell-array to the “figure_1.axes_1.request”-field.  There are several objects which support assigning the “request”-field, it is not limitted to the “axes_1”-object. A more detailed overview about how to specify GraphicsRequests can be found in <a class="reference internal" href="Workbench_GraphicsRequests.html#graphicsrequests"><span class="std std-ref">GraphicsRequests</span></a>.</p>
+<p>This is achieved by assigning the cell-array to the <code class="docutils literal notranslate"><span class="pre">figure_1.axes_1.request</span></code>-field.  There are several objects which support assigning the <code class="docutils literal notranslate"><span class="pre">request</span></code>-field, it is not limitted to the <code class="docutils literal notranslate"><span class="pre">axes_1</span></code>-object. A more detailed overview about how to specify GraphicsRequests can be found in <a class="reference internal" href="Workbench_GraphicsRequests.html#graphicsrequests"><span class="std std-ref">GraphicsRequests</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is possible to include the declaration of GraphicsRequests in the try-catch block. Nonetheless, the GraphicsRequests should probably be declared before calling the students matlab-files.</p>
@@ -552,7 +579,7 @@ The general structure is the following:</p>
 <span class="n">end</span>
 </pre></div>
 </div>
-<p>Be aware that calling a script like in the code above will introduce every variable from the called script to your current workspace. You can see that after calling “pi_approx_rand”, we have access to the variable “ps”, which is an array defined by the students matlab-script. This variable was not available before calling “pi_approx_rand”. This is another construct that should only be used within try-catch-blocks, since the absence of such variables will cause an error, that should be catched under all circumstances to prevent the Example from crashing.
+<p>Be aware that calling a script like in the code above will introduce every variable from the called script to your current workspace. You can see that after calling <code class="docutils literal notranslate"><span class="pre">pi_approx_rand</span></code>, we have access to the variable <code class="docutils literal notranslate"><span class="pre">ps</span></code>, which is an array defined by the students matlab-script. This variable was not available before calling <code class="docutils literal notranslate"><span class="pre">pi_approx_rand</span></code>. This is another construct that should only be used within try-catch-blocks, since the absence of such variables will cause an error, that should be catched under all circumstances to prevent the Example from crashing.
 Even if you do not need to access any variables from the students matlab-script, you should include a call to the script within the try-catch block.</p>
 <p>Due to the connection of the workspaces when calling a script, it is also possible to provide variables to the students script before calling it. This is demonstrated in the following code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span>
@@ -567,9 +594,13 @@ Even if you do not need to access any variables from the students matlab-script,
 <span class="n">end</span>
 </pre></div>
 </div>
-<p>Here the two variables “p_test” and “sig” were declared before calling the script. Due to the shared namespaces, they are now available within the script too. This can be useful if the students script should be tested with a different set of parameters. Note that when using this technique, you have to advise the student to first create a valid parameter set within the console, otherwise he would not be able to test his own script before running the Validation (Variables declared within the console are available in the scripts). If the parameter set is declared within the students script instead, your provided parameters will be overwritten upon calling it. In order to prevent this, it should then probably be checked if the parameters before and after the call remain the same.</p>
+<p>Here the two variables “p_test” and “sig” were declared before calling the script. Due to the shared namespaces, they are now available within the script too. This can be useful if the students script should be tested with a different set of parameters. Note that when using this technique, you have to advise the student to first create a valid parameter set within the console, otherwise he would not be able to test his own script before running the Validation (Variables declared within the console are available in the scripts). If the parameter set is declared within the students script instead, your provided parameters will be overwritten upon calling it. In order to prevent this from happening, it should then probably be checked if the parameters before and after the call remain the same.</p>
 <p>The try-catch-block is also the right place for certain tests to be declared. In the following code, we include a <a class="reference internal" href="Workbench_AvailableTests.html#countcommand"><span class="std std-ref">CountCommand-test</span></a>, which checks if certain matlab-commands were used the correct amount of times:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="n">count_test</span><span class="p">,</span><span class="n">count</span><span class="p">,</span><span class="n">c_stat</span><span class="p">};</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="k">try</span>
     <span class="n">basis3a</span>
     <span class="p">[</span><span class="n">count_test</span><span class="p">,</span><span class="n">count</span><span class="p">,</span><span class="n">c_stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="s1">&#39;basis3a.m&#39;</span><span class="p">,</span> <span class="o">...</span>
     <span class="p">{</span><span class="s1">&#39;x_a&#39;</span><span class="p">,</span><span class="s1">&#39;x_e&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">},</span> <span class="o">...</span>
@@ -580,7 +611,8 @@ Even if you do not need to access any variables from the students matlab-script,
 <span class="n">end</span>
 </pre></div>
 </div>
-<p>For a more comprehensive overview of available tests, see the <a class="reference internal" href="Workbench_AvailableTests.html#availabletests"><span class="std std-ref">Available Tests</span></a>.</p>
+<p>Note that we included the return-values of <code class="docutils literal notranslate"><span class="pre">mltutorCountCommand</span></code> in <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>
+For a more comprehensive overview of available tests, see the <a class="reference internal" href="Workbench_AvailableTests.html#availabletests"><span class="std std-ref">Available Tests</span></a>.</p>
 </div>
 <div class="section" id="deinitialization-of-the-test">
 <h4>Deinitialization of the test<a class="headerlink" href="#deinitialization-of-the-test" title="Permalink to this headline">¶</a></h4>
@@ -590,6 +622,11 @@ Even if you do not need to access any variables from the students matlab-script,
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="validating-and-committing">
+<h2>Validating and Committing<a class="headerlink" href="#validating-and-committing" title="Permalink to this headline">¶</a></h2>
+<p>When you are working on new tests, it is considered best practice to regularly validate the functionality of your test-setup (right-click on the Example in the tree, left-click “Validate”). Doing so prevents you from having to search many different code-changes once validation breaks.</p>
+<p>After you are finished with setting up tests, you need to perform a final commit by right clicking the Example and left-clicking “Commit” in the context menu. Otherwise, your changes will not be visible to other users or students. Before committing, a validation-process is triggered automatically, preventing you from committing faulty Examples. Also see <a class="reference internal" href="Workbench_ExampleCreation.html#committing-examples"><span class="std std-ref">Commiting a new Example</span></a></p>
 </div>
 </div>
 

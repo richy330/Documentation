@@ -10,19 +10,20 @@ The Example.m file is responsible for setting up required tests correctly, provi
 ## Naming
 
 In order for the Example to work correctly, a naming structure has to be followed: Each Example.m filename must start with "Example", followed by additional characters of your choice. Inside the file, a class with the **same name** has to be defined. 
-A valid Example.m file-name would be: "ExampleMathConstants.m", with a class named "ExampleMathConstants".
+A valid Example.m file-name would be: `ExampleMathConstants.m`, with a class named `ExampleMathConstants`.
 The class will contain certain properties and methods, which again have to follow a naming structure. If this structure is neglected, the Tutor Environment may ignore your Example setup, or not Validate your Example at all. If you follow the following code-examples, everything should work out fine.
 
 ## File Content
 The Example.m file contains a [Matlab-class](https://de.mathworks.com/help/matlab/object-oriented-programming.html), which defines tests and additional data. Meta-information like additional files and links are provided as class-properties, while tests are defined as methods, the so called matlabTutorTests, which again have to follow a naming-structure.
 
 ### Class-definition
-As usual, the class defined within the Example.m file should be consistent with the file-name. If we name our class "ExampleMathConstants", it should be placed in a file called "ExampleMathConstants.m". In order for the tests to be working, we have to inherit from the class "MatlabTutorExample". A correct class-definition would look like the following:
+As usual, the class defined within the `Example.m` file should be consistent with the file-name. If we name our class `ExampleMathConstants`, it should be placed in a file called `ExampleMathConstants.m`. In order for the tests to be working, we have to inherit from the class `MatlabTutorExample`. A correct class-definition would look like the following:
 ```
 classdef ExampleMathConstants < MatlabTutorExample
     % Mathematische Konstanten, Format
     %
 ```
+
 
 ### Properties
 If you are unsure about what properties are, or how they work in Matlab, you may want to take a look at these resources:<br>
@@ -63,12 +64,17 @@ Let's break the individual fields down:
 (usedFunctions)=
 #### usedFunctions
 When working on Examples, students can be provided with additional resources. One of these are the Used Functions. If Matlab-functions or statements are declared within this field (different entries provided as char-arrays), MatlabTutor will include the according references in the Used Functions Tab, visible to students working on the example. The references provided by MatlabTutor will automatically be linked towards the correct Matlab Help page. 
-For Example, the above declaration of used functions will provide the following links within the Used Functions Tab:
+For Example, the declaration of used functions [above](propertiesBlock) will provide the following links within the Used Functions Tab:
 
-
-![UsedFunctionsTab](tutor_screenshots/UsedFunctionsTab.png)
+```{image} tutor_screenshots/UsedFunctionsTab.png
+:alt: UsedFunctionsTab
+:width: 600px
+:align: center
+```
 
 Providing Used Functions is optional, if no help should be provided (for example, in an exam), set the usedFunctions field to an empty cell array.
+
+
 
 (requiredSolutions)=
 #### requiredSolutions
@@ -106,7 +112,13 @@ links = { ...
     {'matlabpublish://simplestart1','Einfache Einfuerung in Matlab'} ...
 }  
 ```
-![LinksTab](tutor_screenshots/LinksTab.png)
+
+
+```{image} tutor_screenshots/LinksTab.png
+:alt: LinksTab
+:width: 500px
+:align: center
+```
 
 
 When adding links to this field, it is necessary to use Link-Abreviations, as can be found under the Administration-perspective. If regular html-links are found within this field, Validation may break with the error-code "Bad Subscript".
@@ -165,10 +177,33 @@ methods
     end
 end
 ```
-The methods-block can contain one or more matlabTutorTest-functions. You are not limitted to a single test-method, and you can also include multiple different tests within a single method (e.g. GraphicsRequests, CommandCounts, etc). In order for the tests to work properly, a naming structure has to be followed: Each method within the method-block needs a name starting with "matlabTutorTest", followed by characters of your choice. Deviating from this naming structure may prevent your tests from working. A good practice is to name consecutive tests "matlabTutorTest_test1", "matlabTutorTest_test2" and so on. In most cases, it should be sufficient to work with a single test-method, though.
+The methods-block can contain one or more matlabTutorTest-functions. You are not limitted to a single test-method, and you can also include multiple different tests within a single method (e.g. GraphicsRequests, CommandCounts, etc). In order for the tests to work properly, a naming structure has to be followed: Each method within the method-block needs a name starting with "matlabTutorTest", followed by characters of your choice. Deviating from this naming structure may prevent your tests from working. A good practice is to name consecutive tests `matlabTutorTest_test1`, `matlabTutorTest_test2` and so on. In most cases, it should be sufficient to work with a single test-method, though.
+
+#### Comments
+The first two lines within a test should be comments, as in the example [above](methodsBlock). While comments right after class- or function-definitions usually are for [help or documentation](https://de.mathworks.com/help/matlab/matlab_prog/add-help-for-your-program.html) pruposes, MatlabTutor uses them to provide additional information about executed tests. Students can see this information after running tests on their Examples. For example, the following code will generate the corresponding output, presented after running the tests:
+
+
+
+```
+function matlabTutorTest_test1(this)
+    % Testet alle notwendigen Variablen.
+    % @name Test all variables
+```
+
+```{image} tutor_screenshots/ComputingTutor_TestNameAndDescription_med.png
+:alt: ComputingTutor_TestNameAndDescription_med
+:width: 400px
+:align: center
+```
+
+
+
+
+
+
 
 #### this.init()
-The first line of code within our Test-method should be calling the init()-method on our object (remember that we inherited from "MatlabTutorExample").
+The first line of code within our Test-method should be calling the `init()`-method on our object (remember that we inherited from `MatlabTutorExample`).
 
 #### Variable Checks
 After that, we can start to specify variables that we want to be validated when an Example is tested. This includes the following 4 fields:
@@ -178,20 +213,20 @@ this.mlt.mltutorInternalVariableCheck = {};
 this.mlt.mltutorVariableDisplay = {};
 this.mlt.mltutorInternalVariableDisplay = {};
 ```
-Arguably, the most important one is mltutorVariableCheck. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.
+Arguably, the most important one is `mltutorVariableCheck`. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.
 
 Further Information about how Variable Checks work can be found within the [](AvailableTests)-section
 
 #### Settings before tests
 
 #### GraphicsRequests
-The GraphicsRequests-fields allow us to check the correctness of figures and plots. The general structure is to assign cell-arrays to one or more of several "request"-fields. The cell-array contains the features to be tested, specified as char-arrays. For example, the following code-example will assert correct x-limits, x- and y-labels, as well as the title:
+The GraphicsRequests-fields allow us to check the correctness of figures and plots. The general structure is to assign cell-arrays to one or more of several `request`-fields. The cell-array contains the features to be tested, specified as char-arrays. For example, the following code-example will assert correct x-limits, x- and y-labels, as well as the title:
 
 ```
 this.mlt.mltutorGraphicsRequest.figure_1.axes_1.request = ...
 {'xlim','xlabel','ylabel','title'};
 ```
-This is achieved by assigning the cell-array to the "figure_1.axes_1.request"-field.  There are several objects which support assigning the "request"-field, it is not limitted to the "axes_1"-object. A more detailed overview about how to specify GraphicsRequests can be found in [](GraphicsRequests).
+This is achieved by assigning the cell-array to the `figure_1.axes_1.request`-field.  There are several objects which support assigning the `request`-field, it is not limitted to the `axes_1`-object. A more detailed overview about how to specify GraphicsRequests can be found in [](GraphicsRequests).
 
 ```{note}
 It is possible to include the declaration of GraphicsRequests in the try-catch block. Nonetheless, the GraphicsRequests should probably be declared before calling the students matlab-files.
@@ -208,7 +243,7 @@ catch mltutor_error
     this.mlt.mltutorError = mltutor_error;
 end
 ```
-Be aware that calling a script like in the code above will introduce every variable from the called script to your current workspace. You can see that after calling "pi_approx_rand", we have access to the variable "ps", which is an array defined by the students matlab-script. This variable was not available before calling "pi_approx_rand". This is another construct that should only be used within try-catch-blocks, since the absence of such variables will cause an error, that should be catched under all circumstances to prevent the Example from crashing.
+Be aware that calling a script like in the code above will introduce every variable from the called script to your current workspace. You can see that after calling `pi_approx_rand`, we have access to the variable `ps`, which is an array defined by the students matlab-script. This variable was not available before calling `pi_approx_rand`. This is another construct that should only be used within try-catch-blocks, since the absence of such variables will cause an error, that should be catched under all circumstances to prevent the Example from crashing.
 Even if you do not need to access any variables from the students matlab-script, you should include a call to the script within the try-catch block.
 
 Due to the connection of the workspaces when calling a script, it is also possible to provide variables to the students script before calling it. This is demonstrated in the following code:
@@ -224,11 +259,15 @@ catch mltutor_error
     this.mlt.mltutorError = mltutor_error;
 end
 ```
-Here the two variables "p_test" and "sig" were declared before calling the script. Due to the shared namespaces, they are now available within the script too. This can be useful if the students script should be tested with a different set of parameters. Note that when using this technique, you have to advise the student to first create a valid parameter set within the console, otherwise he would not be able to test his own script before running the Validation (Variables declared within the console are available in the scripts). If the parameter set is declared within the students script instead, your provided parameters will be overwritten upon calling it. In order to prevent this, it should then probably be checked if the parameters before and after the call remain the same.
+Here the two variables "p_test" and "sig" were declared before calling the script. Due to the shared namespaces, they are now available within the script too. This can be useful if the students script should be tested with a different set of parameters. Note that when using this technique, you have to advise the student to first create a valid parameter set within the console, otherwise he would not be able to test his own script before running the Validation (Variables declared within the console are available in the scripts). If the parameter set is declared within the students script instead, your provided parameters will be overwritten upon calling it. In order to prevent this from happening, it should then probably be checked if the parameters before and after the call remain the same.
 
 
 The try-catch-block is also the right place for certain tests to be declared. In the following code, we include a [CountCommand-test](CountCommand), which checks if certain matlab-commands were used the correct amount of times:
 ```
+this.mlt.mltutorVariableCheck = {count_test,count,c_stat};
+...
+...
+...
 try
     basis3a
     [count_test,count,c_stat] = mltutorCountCommand('basis3a.m', ...
@@ -239,6 +278,7 @@ catch mltutor_error
     this.mlt.mltutorError = mltutor_error;
 end
 ```
+Note that we included the return-values of `mltutorCountCommand` in `mltutorVariableCheck`
 For a more comprehensive overview of available tests, see the [](AvailableTests).
 
 #### Deinitialization of the test
@@ -246,3 +286,8 @@ After the try-catch-block, include the following line of code:
 ```
 this.deinit();
 ```
+
+## Validating and Committing
+When you are working on new tests, it is considered best practice to regularly validate the functionality of your test-setup (right-click on the Example in the tree, left-click "Validate"). Doing so prevents you from having to search many different code-changes once validation breaks.
+
+After you are finished with setting up tests, you need to perform a final commit by right clicking the Example and left-clicking "Commit" in the context menu. Otherwise, your changes will not be visible to other users or students. Before committing, a validation-process is triggered automatically, preventing you from committing faulty Examples. Also see [](committing_Examples)

@@ -1,2 +1,2 @@
-Workbench
-======================
+# Workbench
+The Workbench perspective allows us to create, modify and move Examples within and across courses. It is the place where you will spend most of your time while setting up a new course. In the following chapters, we will cover the different functionalities of the perspective, how to create our own Examples, define tests, and making them accessible to other users and students of the course.

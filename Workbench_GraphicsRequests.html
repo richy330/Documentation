@@ -45,8 +45,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Administration" href="Administration.html" />
     <link rel="prev" title="Available Tests" href="Workbench_AvailableTests.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -128,6 +127,15 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Administration.html">
+   Administration
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -184,11 +192,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/richy330/richy330.github.io"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWorkbench_GraphicsRequests.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FWorkbench_GraphicsRequests.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -214,6 +222,11 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mltutorinternalvariablecheck">
+   mltutorInternalVariableCheck
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#specifying-the-correct-figure-and-axis">
    Specifying the correct figure and axis
@@ -265,6 +278,14 @@
   <div class="section" id="graphicsrequests">
 <span id="id1"></span><h1>GraphicsRequests<a class="headerlink" href="#graphicsrequests" title="Permalink to this headline">¶</a></h1>
 <p>There are various options for varifying the correct appearance of plots, and the corresponding tests are collected within the “obj.mlt.mltutorGraphicsRequest” object. We will describe the available tests and their signature in this chapter.</p>
+<div class="section" id="mltutorinternalvariablecheck">
+<h2>mltutorInternalVariableCheck<a class="headerlink" href="#mltutorinternalvariablecheck" title="Permalink to this headline">¶</a></h2>
+<p>Whenever we want to include any kind of Graphics Requests, it is vital to include the following line of code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInternalVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mltutorGraphicsResults&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Otherwise, the results of the specified tests have no effect on passing the validation or not.</p>
+</div>
 <div class="section" id="specifying-the-correct-figure-and-axis">
 <h2>Specifying the correct figure and axis<a class="headerlink" href="#specifying-the-correct-figure-and-axis" title="Permalink to this headline">¶</a></h2>
 <p>Since multiple figures can be plotted within one Example, we have to direct tests towards the correct one. We do this by referencing the “figure_n” field of the mltutorGraphicsRequest object, and then referencing “axes_1” on that field. It is demonstrated in the following line of code, where we direct our tests toward Figure 1:</p>
@@ -346,7 +367,7 @@
 <span class="n">legend</span><span class="p">({</span><span class="s2">&quot;v_x&quot;</span><span class="p">,</span> <span class="s2">&quot;v_y&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>Notice that we saved a handle-reference to the figure in the variable ‘f’. This allows us to inspect the ‘Children’ or elements of the figure, like axes, legends, etc.
+<p>Notice that we saved a handle-reference to the figure in the variable ‘f’. This allows us to inspect the ‘Children’ or elements within the figure. When we create figures and plots in Matlab, there is a certain hierarchy set up in the background. At the top lives a figure, with its children, that are for example different subplots. These Children can have subordinates themselves, for example can a subplot contain different dataseries. When we call the ‘Children’ property on such elements, we get an array containing the descendants of the property.
 These ‘Children’ are the subfields that we used earlier when specifying our mltutorGraphicsRequest.
 Let’s inspect the Children with the following line of code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">Children</span>
@@ -456,6 +477,7 @@ Let’s inspect the Children with the following line of code:</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Workbench_AvailableTests.html" title="previous page">Available Tests</a>
+    <a class='right-next' id="next-link" href="Administration.html" title="next page">Administration</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

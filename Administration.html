@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Available Tests &#8212; The MatlabTutor Documentation Page</title>
+    <title>Administration &#8212; The MatlabTutor Documentation Page</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GraphicsRequests" href="Workbench_GraphicsRequests.html" />
-    <link rel="prev" title="Anatomy of an Example.m-file" href="Workbench_AnatomyOfWorkingExample.html" />
+    <link rel="next" title="Overview of the Administation Perspective" href="Administration_Overview.html" />
+    <link rel="prev" title="GraphicsRequests" href="Workbench_GraphicsRequests.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,11 +98,11 @@
    Overview of the MatlabTutor
   </a>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Workbench.html">
    Workbench
   </a>
-  <ul class="current collapse-ul">
+  <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Workbench_ExampleCreation.html">
      Implementing Tutor Examples
@@ -113,8 +113,8 @@
      Anatomy of an Example.m-file
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Workbench_AvailableTests.html">
      Available Tests
     </a>
    </li>
@@ -127,11 +127,16 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="Administration.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
    Administration
   </a>
-  <ul class="simple collapse-ul">
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Administration_Overview.html">
+     Overview of the Administation Perspective
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -176,7 +181,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Workbench_AvailableTests.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Administration.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -196,7 +201,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FWorkbench_AvailableTests.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FAdministration.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -217,25 +222,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mltutorcountcommand">
-   mltutorCountCommand
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mltutorreadfile">
-   mltutorReadFile
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -243,45 +229,9 @@
         
               <div>
                 
-  <div class="section" id="available-tests">
-<span id="availabletests"></span><h1>Available Tests<a class="headerlink" href="#available-tests" title="Permalink to this headline">¶</a></h1>
-<p>MatlabTutor provides various tests that allow us to test different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within the “Example…”.m file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section (Anatomy of Example.m, add link here)</p>
-<div class="section" id="mltutorcountcommand">
-<span id="countcommand"></span><h2>mltutorCountCommand<a class="headerlink" href="#mltutorcountcommand" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">count_test</span><span class="p">,</span><span class="n">count</span><span class="p">,</span><span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">commands</span><span class="p">,</span><span class="n">max_count</span><span class="p">,</span><span class="n">min_count</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Checks if the number of command-calls is within min_count and max_count (including min and max limits). Is usually put inside the try-catch block of a test, along with the script/function call.</p>
-<p><strong>filename</strong>: specifies the matlab-file that this test is to be run on. Has to be a character-vector, ending with “.m”</p>
-<p><strong>commands</strong>: a cell array containing the commands in form of character-vectors. This can likely include any command known to Matlab, for example ‘tan’, ‘sqrt’, ‘plot’, ‘for’, ‘try’ etc.</p>
-<p><strong>max_count</strong>: Row-vector with the same number of elements as items in commands. First element in the vector corresponds to first command in commands-array, and so on. The test will verify that commands(i) within the specified matlab-file are is present at most max_count(i). If no upper limit of occurence should be specified, include nan in the corresponding position.</p>
-<p><strong>min_count</strong>: Identical to max_count, but specifying the minimum number of occurence. If no lower limit of occurence should be specified, inclue nan in the corresponding position.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This test does not need to be referenced as a method of the Example-Class. In short, write mltutorCountCommand(), not obj.mltutorCountCommand()</p>
-</div>
-</div>
-<div class="section" id="mltutorreadfile">
-<h2>mltutorReadFile<a class="headerlink" href="#mltutorreadfile" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Reads the specified file and returns its content as a cell-array containing character-arrays. Each character array is representing a line of the file. This is helpful if the presence of certain code-constructs should be tested, for example in combination with <a class="reference external" href="https://www.princeton.edu/~mlovett/reference/Regular-Expressions.pdf">Regular Expressions</a>.
-Is usually put inside the try-catch block of a test, along with the script/function call.</p>
-<p>The following code will read through the matlab-file “mathc.m” and proceed to match the declaration of the number 1.5*10⁶ in scientific notation in every line of the file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="s1">&#39;mathc.m&#39;</span><span class="p">);</span>
-<span class="n">f_find_1</span> <span class="o">=</span> <span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span><span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The following code will return true only if the scientific notation was found somewhere within the file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="s1">&#39;mathc.m&#39;</span><span class="p">);</span>
-<span class="n">f_find_2</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="o">~</span><span class="n">cellfun</span><span class="p">(</span><span class="nd">@isempty</span><span class="p">,</span><span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span><span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">)));</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This test does not need to be referenced as a method of the Example-Class. In short, write mltutorCountCommand(), not obj.mltutorCountCommand()</p>
-</div>
+  <div class="section" id="administration">
+<h1>Administration<a class="headerlink" href="#administration" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -313,8 +263,8 @@ Is usually put inside the try-catch block of a test, along with the script/funct
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Workbench_AnatomyOfWorkingExample.html" title="previous page">Anatomy of an Example.m-file</a>
-    <a class='right-next' id="next-link" href="Workbench_GraphicsRequests.html" title="next page">GraphicsRequests</a>
+    <a class='left-prev' id="prev-link" href="Workbench_GraphicsRequests.html" title="previous page">GraphicsRequests</a>
+    <a class='right-next' id="next-link" href="Administration_Overview.html" title="next page">Overview of the Administation Perspective</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

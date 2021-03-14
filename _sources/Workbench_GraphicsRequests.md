@@ -1,8 +1,19 @@
 (GraphicsRequests)=
 # GraphicsRequests
 
-There are various options for varifying the correct appearance of plots, and the corresponding tests are collected within the "obj.mlt.mltutorGraphicsRequest" object. We will describe the available tests and their signature in this chapter.
+There are various options for varifying the correct appearance of plots, and the corresponding tests are collected within the "obj.mlt.mltutorGraphicsRequest" object. We will describe the available tests and their signature in this chapter. 
 
+
+
+## mltutorInternalVariableCheck
+
+Whenever we want to include any kind of Graphics Requests, it is vital to include the following line of code:
+
+```
+this.mlt.mltutorInternalVariableCheck = {'mltutorGraphicsResults'}
+```
+
+Otherwise, the results of the specified tests have no effect on passing the validation or not.
 
 ## Specifying the correct figure and axis
 
@@ -93,7 +104,7 @@ ylabel("v")
 legend({"v_x", "v_y"})
 ```
 
-Notice that we saved a handle-reference to the figure in the variable 'f'. This allows us to inspect the 'Children' or elements of the figure, like axes, legends, etc.
+Notice that we saved a handle-reference to the figure in the variable 'f'. This allows us to inspect the 'Children' or elements within the figure. When we create figures and plots in Matlab, there is a certain hierarchy set up in the background. At the top lives a figure, with its children, that are for example different subplots. These Children can have subordinates themselves, for example can a subplot contain different dataseries. When we call the 'Children' property on such elements, we get an array containing the descendants of the property.
 These 'Children' are the subfields that we used earlier when specifying our mltutorGraphicsRequest.
 Let's inspect the Children with the following line of code:
 
