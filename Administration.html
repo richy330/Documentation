@@ -222,6 +222,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-new-matlabtutor-accounts">
+   Creating new MatlabTutor Accounts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changing-passwords">
+   Changing Passwords
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -231,7 +250,96 @@
                 
   <div class="section" id="administration">
 <h1>Administration<a class="headerlink" href="#administration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-new-matlabtutor-accounts">
+<h2>Creating new MatlabTutor Accounts<a class="headerlink" href="#creating-new-matlabtutor-accounts" title="Permalink to this headline">¶</a></h2>
+<p>When creating new accounts for the MatlabTutor, say for the students of your next course, it is important to understand that these accounts are not actually MatlabTutor specific. Instead, they belong to the ITP-Linux cluster, and Matlabtutor is simply using these accounts. Therefore, the first step of account-creation is to set up the according profiles in the linux-cluster. This will be done for you by the MatlabTutor supervisors. In order to do this, they need a csv-file containing all the new members in a certain format, like the follwing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Group&quot;</span><span class="p">,</span><span class="s2">&quot;seq.no.&quot;</span><span class="p">,</span><span class="s2">&quot;Place&quot;</span><span class="p">,</span><span class="s2">&quot;Last name&quot;</span><span class="p">,</span><span class="s2">&quot;First name&quot;</span><span class="p">,</span><span class="s2">&quot;Incoming&quot;</span><span class="p">,</span><span class="s2">&quot;Matriculation number&quot;</span><span class="p">,</span><span class="s2">&quot;Reference number&quot;</span><span class="p">,</span><span class="s2">&quot;Degree programme&quot;</span><span class="p">,</span><span class="s2">&quot;Sem. within course of study&quot;</span><span class="p">,</span><span class="s2">&quot;Date of registration&quot;</span><span class="p">,</span><span class="s2">&quot;Email&quot;</span><span class="p">,</span><span class="s2">&quot;Note&quot;</span>
+</pre></div>
+</div>
+<p>As a teacher, you should be able to download a file with matching format from TU-Graz online. It is very important that the format matches exactly, otherwise the Matlab supervisors may have problems creating your accounts. It is not important what language you export your file in.</p>
+<p>When the matlab-supervisors receive your data, they will create appropriate accounts, and also return a new file that you need for granting the new members MatlabTutor-access. It is again a csv-file, that you need upload to the MatlabTutor under the Administration-Perspective. Therefore, head to the perspective, and select the course you want your new members to be in on the left side, like in the following:</p>
+<p><img alt="Administration_UserIntegration1" src="_images/Administration_UserIntegration1.png" /></p>
+<p>You will see 5 different icons in the top, responsible for creating new user-groups, and also one for importing users (third from the left), labeled ‘Import users and groups’. Upon clicking it, you can upload the file you received from the supervisors, and should then be able to see the newly created accounts within their corresponding groups. In the example above, we have three members in the tutors group, and 43 members in group 1. The groups that the new accounts are displayed in correspond to the entries in the csv file you uploaded.
+Meanwhile, the new members will be informed about their new accounts by email, and receive their login-credentials automatically.</p>
+</div>
+<div class="section" id="changing-passwords">
+<h2>Changing Passwords<a class="headerlink" href="#changing-passwords" title="Permalink to this headline">¶</a></h2>
+<p>When new user accounts are created, it is recommended to change their passwords soon. Since Matlabtutor accounts are actually implemented in the Linux-cluster, passwords can not be changed within the Tutor-application. Instead, users need to access the cluster directly and update their login-data there. This can be achieved with an SSH-client, for example <a class="reference external" href="https://wiki.x2go.org/doku.php">X2Go</a> or <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>. It will allow us to remotely access a linux-desktop, as if we were working right on one of the cluster’s machines. We will demonstrate the procedure to change a user-password using X2Go.
+When starting the client, you will see one of the following windows:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session1" src="_images/Administration_X2Go_Session1.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session2" src="_images/Administration_X2Go_Session2.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You can access the second window by clicking ‘New session’ in the top left corner of the left window. Now we need to access the linux cluster, by connecting to one of the two servers:
+- faepnx.tugraz.at
+- faepnx.tu-graz.ac.at
+In the example above, we already entered ‘faepnx.tugraz.at’ under ‘Host’. When clicking ‘Ok’, you will be redirected to the first window, but with a new session available, as displayed on the right side. We can start the new session and connect to the linux-cluster by clicking the session on the right side. We will be asked to enter our login-credentials (the same login data we use to access MatlabTutor).</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session3" src="_images/Administration_X2Go_Session3.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session4" src="_images/Administration_X2Go_Session4.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>After we enter our data, a new window with a linux-desktop will open. This is our access to the cluster.
+Next, we need to open a Bash-shell. Therefore, we right-click the desktop and click ‘Run command…’ in the context-menu. A search-window appears, where we enter ‘Konsole’ and hit enter. A bash-command-prompt will open subsequently.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session5" src="_images/Administration_X2Go_Session5.png" /></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session6" src="_images/Administration_X2Go_Session6.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><img alt="Administration_X2Go_Session7" src="_images/Administration_X2Go_Session7.png" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If we enter the command <code class="docutils literal notranslate"><span class="pre">passwd</span></code> and hit enter, a password-manipulation-routine will be launched, allowing us to enter our current password, and then provide a new one, which we will have to confirm by typing it two times. Note that the characters you enter will not be displayed, even if the console recognizes them. It will appear as if it is not responding, which may cause some confusion at first. Don’t let yourself be flustered, enter your passwords, and confirm with hitting enter. After you have succesfully changed your password, you can close your SSH session, and use you newly created password for accessing MatlabTutor.</p>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 

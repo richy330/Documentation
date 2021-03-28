@@ -1,3 +1,4 @@
+(Example-file)=
 # Anatomy of an Example.m-file
 
 

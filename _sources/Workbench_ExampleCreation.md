@@ -158,4 +158,21 @@ Choose the correct Excercise from the window by clicking on it. The selected Exc
 ````
 
 
-Either via Context menu, or Convert file, when you have a new Example assigned to an Excercise, you are ready to define the tests required to pass your Example. We will cover the details of defining these tests in the next chapter.
+Either via Context menu, or Convert file, when you have a new Example assigned to an Excercise, you are ready to define the tests required to pass your Example. We will cover the details of defining these tests in the [next chapter](Example-file).
+
+
+### Modifying Names and IDs
+
+After an Example is assigned, you will notice it being displayed in the tree on the left, with a title and the aforementioned ID. It may look like the following:
+
+![Workbench_NameAndID](tutor_screenshots/Workbench_NameAndID.png)
+
+If we decide to change the title of the Example after its creation, we can easily do this in the Administration Perspective, as described in the according [section](Administration_CourseView). 
+Changing the ID however is not that simple. In fact, it's not possible to give a new ID to an already existing Example. Instead, we have to work around this limitation. By right-clicking on the Example, we can select 'Checkout as unassigned' from the context menu, where we will be asked to provide a new ID, since every Example needs to have a unique ID. After doing so, we will find a copy of the Example under the 'unassigned' tab. Note that this does not remove the original Example from the Excercise! We can now reassign the Example with its new ID to the Excercise.
+
+
+### Deleting Examples
+Currently, deleting Examples is not supported, since it may cause problems with Excercises that already have been worked on by students, or cause vacant entries within the database in the background. If you wish to render Examples invisible, or remove them from an Excercise, it is best to simply turn its visibility off within the Administration Perspective, or manually move it to an Excercise dedicated for your unwanted Examples, whose visibility can be turned of as well.
+
+
+
