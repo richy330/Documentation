@@ -77,7 +77,7 @@ Properties we can check here include: 'xlim','xlabel','ylabel','title','yscale'.
 For an exhaustive list of properties that can be checked, see [Axes Properties](https://de.mathworks.com/help/matlab/ref/matlab.graphics.axis.axes-properties.html)
 
 
-## Expanding the notion to other types of plots
+## Expanding the notation to other types of plots
 
 At the beginning, it may be unclear which fields we can specify on which types of plots. But there is a simple strategy to find the available subfields, which we will demonstrate here. First, create a new figure, that you want to include in your Graphics Requests. We will choose to include 2 subplots, with 2 [errorbar](https://de.mathworks.com/help/matlab/ref/errorbar.html) plots each:
 

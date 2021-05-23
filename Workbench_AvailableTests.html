@@ -131,7 +131,12 @@
   <a class="reference internal" href="Administration.html">
    Administration
   </a>
-  <ul class="simple collapse-ul">
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Administration_Overview.html">
+     Overview of the Administation Perspective
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -223,13 +228,111 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mltutorcountcommand">
-   mltutorCountCommand
+  <a class="reference internal nav-link" href="#variable-checks">
+   Variable Checks
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-mlt-mltutorvariablecheck">
+     this.mlt.mltutorVariableCheck
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#caveats">
+       Caveats
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-mlt-mltutorinternalvariablecheck">
+     this.mlt.mltutorInternalVariableCheck
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#semicolon">
+       semicolon (;)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-to-prohibit-use-of-the-command-clear">
+       Test to prohibit use of the command
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         clear
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#help-text">
+       Help text
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphics">
+       Graphics
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-mlt-mltutorvariabledisplay">
+     this.mlt.mltutorVariableDisplay
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-mlt-mltutorinternalvariabledisplay">
+     this.mlt.mltutorInternalVariableDisplay
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mltutorreadfile">
-   mltutorReadFile
+  <a class="reference internal nav-link" href="#additional-tests">
+   Additional Tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mltutorcountcommand">
+     mltutorCountCommand
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mltutorreadfile">
+     mltutorReadFile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-of-the-function-input">
+     Use of the function
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       input
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-output-from-disp">
+     Checking output from
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       disp
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-of-an-anonymous-function">
+     Testing of an anonymous function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accuracy-of-variable-tests">
+   Accuracy of variable tests
   </a>
  </li>
 </ul>
@@ -245,24 +348,132 @@
                 
   <div class="section" id="available-tests">
 <span id="availabletests"></span><h1>Available Tests<a class="headerlink" href="#available-tests" title="Permalink to this headline">¶</a></h1>
-<p>MatlabTutor provides various tests that allow us to test different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within the “Example…”.m file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section (Anatomy of Example.m, add link here)</p>
-<div class="section" id="mltutorcountcommand">
-<span id="countcommand"></span><h2>mltutorCountCommand<a class="headerlink" href="#mltutorcountcommand" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">count_test</span><span class="p">,</span><span class="n">count</span><span class="p">,</span><span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">commands</span><span class="p">,</span><span class="n">max_count</span><span class="p">,</span><span class="n">min_count</span><span class="p">);</span>
+<p>MatlabTutor provides various tests that allow us to test different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within a test-method in the <code class="docutils literal notranslate"><span class="pre">Example....m</span></code> file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section <a class="reference internal" href="Workbench_AnatomyOfWorkingExample.html#example-file"><span class="std std-ref">Anatomy of an Example.m-file</span></a>.</p>
+<div class="section" id="variable-checks">
+<h2>Variable Checks<a class="headerlink" href="#variable-checks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="this-mlt-mltutorvariablecheck">
+<h3>this.mlt.mltutorVariableCheck<a class="headerlink" href="#this-mlt-mltutorvariablecheck" title="Permalink to this headline">¶</a></h3>
+<p>Arguably one of the most important fields in any test-method. <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code> can be assigned with a struct containing any variable that should be tested against your reference solution. This includes any variable used in the students solution script, and variables defined within the encapsulating test-method. Several of those variables can be listed in the cell array. Certain tests will yield a return value, that has to be included within this field to work properly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">these</span> <span class="n">variables</span> <span class="n">will</span> <span class="n">be</span> <span class="n">checked</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">test</span>
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="n">student_variable_1</span><span class="p">,</span> <span class="n">student_variable_2</span><span class="p">,</span> <span class="n">mltutorCountCommandReturnValues</span><span class="p">,</span> <span class="o">...</span><span class="p">};</span>
 </pre></div>
 </div>
-<p>Checks if the number of command-calls is within min_count and max_count (including min and max limits). Is usually put inside the try-catch block of a test, along with the script/function call.</p>
+<div class="section" id="caveats">
+<h4>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h4>
+<p>While many different types of variables are supported by <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>, there are certain types that should not be included, since they are not ‘comparable’. This includes:</p>
+<ul class="simple">
+<li><p>anonymous functions</p></li>
+<li><p>custom classes</p></li>
+<li><p>errors</p></li>
+</ul>
+<p>Tests of anonymous functions are described in <a class="reference internal" href="#anonymous-function-test"><span class="std std-ref">Testing of an anonymous function</span></a>.</p>
+</div>
+</div>
+<div class="section" id="this-mlt-mltutorinternalvariablecheck">
+<h3>this.mlt.mltutorInternalVariableCheck<a class="headerlink" href="#this-mlt-mltutorinternalvariablecheck" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">matlab_tutor</span> <span class="n">variables</span> <span class="n">checked</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">test</span>
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInternalVariableCheck</span> <span class="o">=</span> <span class="p">{};</span>
+</pre></div>
+</div>
+<p>Variables included within this field are not specific to the scripts given to the students, but instead include MatlabTutor-internal variables.</p>
+<p>Some test are automatically done if you add a specific predefined variable to the the cell array. Several of those variables can be listed in the cell array.</p>
+<div class="section" id="semicolon">
+<h4>semicolon (;)<a class="headerlink" href="#semicolon" title="Permalink to this headline">¶</a></h4>
+<p>This test automatically tests the proper use of semicolons in the required solutions:</p>
+<p><code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorInternalVariableCheck</span> <span class="pre">=</span> <span class="pre">{'mltutorSemicolon‘};</span></code></p>
+<p>This test does not require any further settings.</p>
+</div>
+<div class="section" id="test-to-prohibit-use-of-the-command-clear">
+<h4>Test to prohibit use of the command <code class="docutils literal notranslate"><span class="pre">clear</span></code><a class="headerlink" href="#test-to-prohibit-use-of-the-command-clear" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorInternalVariableCheck</span> <span class="pre">=</span> <span class="pre">{'mltutorClearCount‘};</span></code></p>
+<p>This test does not require any further settings.</p>
+</div>
+<div class="section" id="help-text">
+<h4>Help text<a class="headerlink" href="#help-text" title="Permalink to this headline">¶</a></h4>
+<p>To check the help text of a solution use</p>
+<p><code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorInternalVariableCheck</span> <span class="pre">=</span> <span class="pre">{'mltutorHelpRegexpCorrect’};</span></code></p>
+<p>This has to be accompanied with a proper specification of the variable <code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorHelpRegexp</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>this.mlt.mltutorHelpRegexp = {&#39;^[ \t]*[Mm]atlab’, &#39;Program’};
+</pre></div>
+</div>
+<p>This would mean that the first two lines of the help text are checked:</p>
+<ul class="simple">
+<li><p>Line 1: Could start with zero or more blanks or tabs followed by either Matlab or matlab</p></li>
+<li><p>Line 2: Must contain the word Program</p></li>
+</ul>
+<p>One can use all the syntax from regular expressions in Matlab.</p>
+<p>An extensive example can be found in <code class="docutils literal notranslate"><span class="pre">Einfaches</span> <span class="pre">Plotprogramm</span></code></p>
+</div>
+<div class="section" id="graphics">
+<h4>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h4>
+<p>To check graphics requires the specification</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInternalVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mltutorGraphicsResults&#39;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>which needs to be accompanied, e.g., by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">line_1</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">{</span><span class="s1">&#39;xdata&#39;</span><span class="p">,</span><span class="s1">&#39;ydata&#39;</span><span class="p">,</span><span class="s1">&#39;color&#39;</span><span class="p">,</span><span class="s1">&#39;linestyle&#39;</span><span class="p">,</span><span class="s1">&#39;marker&#39;</span><span class="p">};</span>
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">line_2</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">{</span><span class="s1">&#39;xdata&#39;</span><span class="p">,</span><span class="s1">&#39;ydata&#39;</span><span class="p">,</span><span class="s1">&#39;color&#39;</span><span class="p">,</span><span class="s1">&#39;linestyle&#39;</span><span class="p">,</span><span class="s1">&#39;marker&#39;</span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="this-mlt-mltutorvariabledisplay">
+<h3>this.mlt.mltutorVariableDisplay<a class="headerlink" href="#this-mlt-mltutorvariabledisplay" title="Permalink to this headline">¶</a></h3>
+<p>If you want to provide further information to students when validating their scripts, it may be helpful to include variables within this field. Included variables will not be validated, but displayed in the test-results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">these</span> <span class="n">variables</span> <span class="n">will</span> <span class="n">only</span> <span class="n">be</span> <span class="n">displayed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">test</span> <span class="p">(</span><span class="n">no</span> <span class="n">check</span><span class="p">)</span>
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableDisplay</span> <span class="o">=</span> <span class="p">{};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="this-mlt-mltutorinternalvariabledisplay">
+<h3>this.mlt.mltutorInternalVariableDisplay<a class="headerlink" href="#this-mlt-mltutorinternalvariabledisplay" title="Permalink to this headline">¶</a></h3>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">mltutorVariableDisplay</span></code>, but used to display internal variables. Usually left out.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">matlab_tutor</span> <span class="n">variables</span> 
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInternalVariableDisplay</span> <span class="o">=</span> <span class="p">{};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="additional-tests">
+<h2>Additional Tests<a class="headerlink" href="#additional-tests" title="Permalink to this headline">¶</a></h2>
+<p>The tests described in the following sections have certain return variables. It is not sufficient to only write a certain test, instead, the return variables have to be included in the <code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorVariableCheck</span> <span class="pre">=</span> <span class="pre">{};</span></code> field in the beginning of the encapsulating test - method. For example, if you use <a class="reference internal" href="#countcommand"><span class="std std-ref">mltutorCountCommand</span></a>, you have to include its return values, like in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="n">count_test</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">stat</span><span class="p">};</span>
+<span class="o">%</span>
+<span class="o">%</span>
+<span class="o">%</span>
+<span class="p">[</span><span class="n">count_test</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">commands</span><span class="p">,</span> <span class="n">max_count</span><span class="p">,</span> <span class="n">min_count</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The same pattern holds for other tests as well.</p>
+<div class="section" id="mltutorcountcommand">
+<span id="countcommand"></span><h3>mltutorCountCommand<a class="headerlink" href="#mltutorcountcommand" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">count_test</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">commands</span><span class="p">,</span> <span class="n">max_count</span><span class="p">,</span> <span class="n">min_count</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Checks if the number of command-calls is within min_count and max_count (including min and max limits). Is usually put inside the try-catch block of a test, along with the script/function call. Include the return values <code class="docutils literal notranslate"><span class="pre">count_test,</span> <span class="pre">count,</span> <span class="pre">stat</span></code> within <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>!</p>
 <p><strong>filename</strong>: specifies the matlab-file that this test is to be run on. Has to be a character-vector, ending with “.m”</p>
 <p><strong>commands</strong>: a cell array containing the commands in form of character-vectors. This can likely include any command known to Matlab, for example ‘tan’, ‘sqrt’, ‘plot’, ‘for’, ‘try’ etc.</p>
 <p><strong>max_count</strong>: Row-vector with the same number of elements as items in commands. First element in the vector corresponds to first command in commands-array, and so on. The test will verify that commands(i) within the specified matlab-file are is present at most max_count(i). If no upper limit of occurence should be specified, include nan in the corresponding position.</p>
 <p><strong>min_count</strong>: Identical to max_count, but specifying the minimum number of occurence. If no lower limit of occurence should be specified, inclue nan in the corresponding position.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">count_test</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">stat</span><span class="p">]</span> <span class="o">=</span> <span class="n">mltutorCountCommand</span><span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="o">...</span>
+    <span class="p">{</span><span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="s1">&#39;elseif&#39;</span><span class="p">,</span> <span class="s1">&#39;switch&#39;</span><span class="p">,</span> <span class="s1">&#39;for&#39;</span><span class="p">,</span> <span class="s1">&#39;while&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;cumsum&#39;</span><span class="p">},</span> <span class="o">...</span>
+    <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>        <span class="mi">0</span><span class="p">,</span>        <span class="mi">2</span><span class="p">,</span>     <span class="mi">0</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>      <span class="mi">0</span><span class="p">,</span>     <span class="mi">0</span>      <span class="p">],</span> <span class="o">...</span>
+    <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>    <span class="mi">2</span><span class="p">,</span>        <span class="n">nan</span><span class="p">,</span>      <span class="mi">2</span><span class="p">,</span>     <span class="n">nan</span><span class="p">,</span>     <span class="n">nan</span><span class="p">,</span>    <span class="n">nan</span><span class="p">,</span>   <span class="n">nan</span>    <span class="p">]);</span>
+</pre></div>
+</div>
+<p>with the meaning that <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elseif</span></code>, and <code class="docutils literal notranslate"><span class="pre">for</span></code> have to be used exactly twice (the maximum value
+is the same as the minimum value), and the others are not allowed to be used at all.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">mltutorCountCommand</span></code> is used, there is also a test message created which can be viewed in the the test results editor.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This test does not need to be referenced as a method of the Example-Class. In short, write mltutorCountCommand(), not obj.mltutorCountCommand()</p>
 </div>
 </div>
 <div class="section" id="mltutorreadfile">
-<h2>mltutorReadFile<a class="headerlink" href="#mltutorreadfile" title="Permalink to this headline">¶</a></h2>
+<h3>mltutorReadFile<a class="headerlink" href="#mltutorreadfile" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -270,18 +481,82 @@
 Is usually put inside the try-catch block of a test, along with the script/function call.</p>
 <p>The following code will read through the matlab-file “mathc.m” and proceed to match the declaration of the number 1.5*10⁶ in scientific notation in every line of the file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="s1">&#39;mathc.m&#39;</span><span class="p">);</span>
-<span class="n">f_find_1</span> <span class="o">=</span> <span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span><span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">);</span>
+<span class="n">f_find_1</span> <span class="o">=</span> <span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span> <span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The following code will return true only if the scientific notation was found somewhere within the file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_lines</span> <span class="o">=</span> <span class="n">mltutorReadFile</span><span class="p">(</span><span class="s1">&#39;mathc.m&#39;</span><span class="p">);</span>
-<span class="n">f_find_2</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="o">~</span><span class="n">cellfun</span><span class="p">(</span><span class="nd">@isempty</span><span class="p">,</span><span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span><span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">)));</span>
+<span class="n">f_find_2</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="o">~</span><span class="n">cellfun</span><span class="p">(</span><span class="nd">@isempty</span><span class="p">,</span> <span class="n">regexp</span><span class="p">(</span><span class="n">f_lines</span><span class="p">,</span> <span class="s1">&#39;1.5[eEdD]\+*0*6&#39;</span><span class="p">)));</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This test does not need to be referenced as a method of the Example-Class. In short, write mltutorCountCommand(), not obj.mltutorCountCommand()</p>
 </div>
+</div>
+<div class="section" id="use-of-the-function-input">
+<h3>Use of the function <code class="docutils literal notranslate"><span class="pre">input</span></code><a class="headerlink" href="#use-of-the-function-input" title="Permalink to this headline">¶</a></h3>
+<p>If your Example should include the <code class="docutils literal notranslate"><span class="pre">input</span></code> function, you have to specify the expected inputs with the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInputAnswers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span><span class="s1">&#39;0.2&#39;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>In this example there would be two answers (‘0.1’ and ‘0.2’) for two distinct calls of <code class="docutils literal notranslate"><span class="pre">input</span></code>.</p>
+<p>You can then test if the correct questions (=input-messages) were asked for by specifying, e.g.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorInputRegexp</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span>
+<span class="p">{</span><span class="s1">&#39;[B|b]itte\s+geben\s+[S|s]ie\s+x\s+ein:&#39;</span><span class="p">},</span> <span class="o">...</span>
+<span class="p">{</span><span class="s1">&#39;[B|b]itte\s+geben\s+[S|s]ie\s+y\s+ein:&#39;</span><span class="p">}</span> <span class="o">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Don’t forget to specify <code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorInternalVariableCheck</span> <span class="pre">=</span> <span class="pre">{'mltutorInputRegexpAllCorrect'};</span></code> in this case!
+This example is from <code class="docutils literal notranslate"><span class="pre">Vergleich</span> <span class="pre">von</span> <span class="pre">Formeln</span></code> from <code class="docutils literal notranslate"><span class="pre">Programmieren</span> <span class="pre">in</span> <span class="pre">der</span> <span class="pre">Physik</span></code>.</p>
+</div>
+<div class="section" id="checking-output-from-disp">
+<h3>Checking output from <code class="docutils literal notranslate"><span class="pre">disp</span></code><a class="headerlink" href="#checking-output-from-disp" title="Permalink to this headline">¶</a></h3>
+<p>These tests require <code class="docutils literal notranslate"><span class="pre">this.mlt.mltutorInternalVariableCheck</span> <span class="pre">=</span> <span class="pre">{'mltutorDispRegexpCorrect'};</span></code> to be set.</p>
+<p>In the following example there are four outputs with disp required from the student</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorDispRegexp</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span>
+<span class="p">[</span><span class="s1">&#39;[Aa]ussen:.*&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">ua</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">14</span><span class="p">)],</span><span class="o">...</span>
+<span class="p">[</span><span class="s1">&#39;[Ii]nnen:.*&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">ui</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">14</span><span class="p">)],</span><span class="o">...</span>
+<span class="p">[</span><span class="s1">&#39;[Mm]ittel:.*&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">m</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="mi">14</span><span class="p">)],</span><span class="o">...</span>
+<span class="p">[</span><span class="s1">&#39;[Pp]i:.*&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Again, regexp is used to specify the required output, e.g., the first line has to start with
+<code class="docutils literal notranslate"><span class="pre">Aussen:</span></code> or <code class="docutils literal notranslate"><span class="pre">aussen:</span></code>, then followed by some characters (zero or more times), and then followed
+by the Nth value in the variable <code class="docutils literal notranslate"><span class="pre">ua</span></code> with given accuracy.</p>
+</div>
+<div class="section" id="testing-of-an-anonymous-function">
+<span id="anonymous-function-test"></span><h3>Testing of an anonymous function<a class="headerlink" href="#testing-of-an-anonymous-function" title="Permalink to this headline">¶</a></h3>
+<p>If the student, is required to write an anonymous function, like <code class="docutils literal notranslate"><span class="pre">nc</span> <span class="pre">=</span> <span class="pre">&#64;(a,x)</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">sin(x).^2</span></code> the function handle <code class="docutils literal notranslate"><span class="pre">func</span></code> can not be used in the variable list for automatic tests.</p>
+<p>You have to execute it within the test in the <code class="docutils literal notranslate"><span class="pre">try-catch</span></code>-environment, as demonstrated in the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span>
+    <span class="n">a_mlt</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">x_mlt</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">func_test</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a_mlt</span><span class="p">,</span> <span class="n">x_mlt</span><span class="p">);</span>
+<span class="n">catch</span> <span class="n">test_try_catch</span>
+    <span class="n">func_test</span> <span class="o">=</span> <span class="n">nan</span><span class="p">;</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorTestMessage</span><span class="o">.</span><span class="p">(</span><span class="s1">&#39;message_1&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;func could not be executed!&#39;</span><span class="p">;</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>Now you can include <code class="docutils literal notranslate"><span class="pre">func_test</span></code> in the list of variables to be tested. Here also a test message is generated, if the function could not be executed at all.</p>
+</div>
+</div>
+<div class="section" id="accuracy-of-variable-tests">
+<h2>Accuracy of variable tests<a class="headerlink" href="#accuracy-of-variable-tests" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to specify the relative acceptable error of variable tests you can specify</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorDoubleAccuracy</span> <span class="o">=</span> <span class="mf">1.E-6</span><span class="p">;</span>
+<span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorSingleAccuracy</span> <span class="o">=</span> <span class="mf">1.E-4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The default values are</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mltutorDoubleAccuracy</span> <span class="o">=</span> <span class="mf">1.E-12</span>
+<span class="n">mltutorSingleAccuracy</span> <span class="o">=</span> <span class="mf">1.E-6</span>
+</pre></div>
+</div>
+<p>This value is then used for all variables within this test.</p>
 </div>
 </div>
 
