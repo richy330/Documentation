@@ -216,7 +216,7 @@ this.mlt.mltutorInternalVariableDisplay = {};
 ```
 Arguably, the most important one is `mltutorVariableCheck`. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.
 
-Further Information about how Variable Checks work can be found within the [](AvailableTests)-section
+Further Information about how different Variable Checks work can be found within the [](AvailableTests)-section.
 
 #### Settings before tests
 

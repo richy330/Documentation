@@ -176,3 +176,21 @@ Currently, deleting Examples is not supported, since it may cause problems with 
 
 
 
+## Uploading additional Files
+
+It is often neccessary to include additional files to our Examples, either images, datafiles or supplemental course materials. Files of any type can be included into our Examples by uploading them via the "Resources" tab. The "Resources" tab can be found in the Workbench perspective, right beside the "Example" tab.
+
+Right-clicking on one of the example-folders will open a context menu, with an "Upload" option. Clicking this will open a new window, allowing to upload new files either by drag-and-drop or by browsing the directory containing the file of interest on your machine.
+
+````{panels}
+![Workbench_ResourcesTab2](tutor_screenshots/Workbench_ResourcesTab2.png)
+----
+![Workbench_ResourcesTab3](tutor_screenshots/Workbench_ResourcesTab3.png)
+````
+
+
+
+
+
+
+
