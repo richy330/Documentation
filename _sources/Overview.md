@@ -5,9 +5,9 @@ Overview of the MatlabTutor
 
 ![Entry Page](tutor_screenshots/MatlabTutorEntryPage.png)
 
-When you are loging in into the MatlabTutor, you will be faced by a Page similar to the one above. There are a lot of interesting places that we should be familiar with, so we will give a short overview within this section. It is planned to give a more detailed guide to all the functionalities in the future, but for now, we will only cover the Example implementation in greater depth.
+When you are logging in into the MatlabTutor, you will be faced by a Page similar to the one above. There are a lot of interesting places that we should be familiar with, so we will give a short overview within this section. It is planned to give a more detailed guide to all the functionalities in the future, but for now, we will only cover the Example implementation in greater depth.
 
-Whenever you work within the MatlabTutor, it is important to know in what "Perspective" you currently are. You can check the active Perpective by the "Perspectives" tab in the top. The default one is called "Computing Tutor", and
+Whenever you work within the MatlabTutor, it is important to know in what "Perspective" you currently are. You can check the active Perspective by the "Perspectives" tab in the top. The default one is called "Computing Tutor", and
 is available for every user logged in to the Tutor. On the left side (below the tab
 with "Computing Tutor") a dropdown menu provides access to your available courses, and
 below that you can select the year, if you have been signed in to the course for more than one year. In the above screenshot, the selected course is "Programmieren in der Physik", and the year is 2021.

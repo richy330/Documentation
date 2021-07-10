@@ -4,10 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Anatomy of an Example.m-file &#8212; The MatlabTutor Documentation Page</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +21,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,7 +42,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,14 +54,14 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Available Tests" href="Workbench_AvailableTests.html" />
     <link rel="prev" title="Implementing Tutor Examples" href="Workbench_ExampleCreation.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -72,37 +70,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/ITPTutorLogo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">The MatlabTutor Documentation Page</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ITPTutorLogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The MatlabTutor Documentation Page</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="WelcomePage.html">
    Welcome to the MatlabTutor Integration-Doc
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Overview.html">
    Overview of the MatlabTutor
   </a>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1">
+  <a class="reference internal" href="StudentView.html">
+   Student Perspective
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Workbench.html">
    Workbench
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Workbench_ExampleCreation.html">
      Implementing Tutor Examples
@@ -124,25 +132,27 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="Administration.html">
    Administration
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Administration_Overview.html">
      Overview of the Administation Perspective
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -158,21 +168,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -190,7 +200,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -208,25 +218,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#purpose">
    Purpose
@@ -355,8 +365,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -364,23 +374,23 @@
         
               <div>
                 
-  <div class="section" id="anatomy-of-an-example-m-file">
+  <section id="anatomy-of-an-example-m-file">
 <span id="example-file"></span><h1>Anatomy of an Example.m-file<a class="headerlink" href="#anatomy-of-an-example-m-file" title="Permalink to this headline">¶</a></h1>
 <p>In order to be able to create our own Examples, it is important to understand the underlying files necessary for a working Example. Along with the solution-code provided as a matlab-script and the problem description in Markdown, the Example.m file is the most important one for creating a working Tutor Example. We will discuss the structure of Example.m files in this chapter. It is assumed that you followed the chapter <a class="reference internal" href="Workbench_ExampleCreation.html#example-implementation"><span class="std std-ref">Implementing Tutor Examples</span></a>, and already have a working starting point for the implementation of further tests and additional data. If you don’t have an Example including an Example.m-file assigned to an Excercise, or the Validation of an Example fails, it is best to start fresh, before editting the Example.m-file. Altering the Example.m file is very sensitive to breaks, and debugging may be difficult. It is best practice to start with a working Example (with successful Validation), and running the validation process whenever adding new tests, or refactoring the code in any other sense. This way, it should be easy to revert breaking changes and quickly find faulty code-edits.</p>
-<div class="section" id="purpose">
+<section id="purpose">
 <h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
 <p>The Example.m file is responsible for setting up required tests correctly, provides information about useful links and used functions, and defines which files are used within the Example.</p>
-</div>
-<div class="section" id="naming">
+</section>
+<section id="naming">
 <h2>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
 <p>In order for the Example to work correctly, a naming structure has to be followed: Each Example.m filename must start with “Example”, followed by additional characters of your choice. Inside the file, a class with the <strong>same name</strong> has to be defined.
 A valid Example.m file-name would be: <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants.m</span></code>, with a class named <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants</span></code>.
 The class will contain certain properties and methods, which again have to follow a naming structure. If this structure is neglected, the Tutor Environment may ignore your Example setup, or not Validate your Example at all. If you follow the following code-examples, everything should work out fine.</p>
-</div>
-<div class="section" id="file-content">
+</section>
+<section id="file-content">
 <h2>File Content<a class="headerlink" href="#file-content" title="Permalink to this headline">¶</a></h2>
 <p>The Example.m file contains a <a class="reference external" href="https://de.mathworks.com/help/matlab/object-oriented-programming.html">Matlab-class</a>, which defines tests and additional data. Meta-information like additional files and links are provided as class-properties, while tests are defined as methods, the so called matlabTutorTests, which again have to follow a naming-structure.</p>
-<div class="section" id="class-definition">
+<section id="class-definition">
 <h3>Class-definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">¶</a></h3>
 <p>As usual, the class defined within the <code class="docutils literal notranslate"><span class="pre">Example.m</span></code> file should be consistent with the file-name. If we name our class <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants</span></code>, it should be placed in a file called <code class="docutils literal notranslate"><span class="pre">ExampleMathConstants.m</span></code>. In order for the tests to be working, we have to inherit from the class <code class="docutils literal notranslate"><span class="pre">MatlabTutorExample</span></code>. A correct class-definition would look like the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">classdef</span> <span class="n">ExampleMathConstants</span> <span class="o">&lt;</span> <span class="n">MatlabTutorExample</span>
@@ -388,8 +398,8 @@ The class will contain certain properties and methods, which again have to follo
     <span class="o">%</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="properties">
+</section>
+<section id="properties">
 <h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
 <p>If you are unsure about what properties are, or how they work in Matlab, you may want to take a look at these resources:<br>
 <a class="reference external" href="https://de.mathworks.com/help/matlab/properties-storing-data-and-state.html">Properties</a> <br>
@@ -421,14 +431,14 @@ The class will contain certain properties and methods, which again have to follo
 </pre></div>
 </div>
 <p>Let’s break the individual fields down:</p>
-<div class="section" id="usedfunctions">
+<section id="usedfunctions">
 <span id="id1"></span><h4>usedFunctions<a class="headerlink" href="#usedfunctions" title="Permalink to this headline">¶</a></h4>
 <p>When working on Examples, students can be provided with additional resources. One of these are the Used Functions. If Matlab-functions or statements are declared within this field (different entries provided as char-arrays), MatlabTutor will include the according references in the Used Functions Tab, visible to students working on the example. The references provided by MatlabTutor will automatically be linked towards the correct Matlab Help page.
 For Example, the declaration of used functions <a class="reference internal" href="#propertiesblock"><span class="std std-ref">above</span></a> will provide the following links within the Used Functions Tab:</p>
 <a class="reference internal image-reference" href="_images/UsedFunctionsTab.png"><img alt="UsedFunctionsTab" class="align-center" src="_images/UsedFunctionsTab.png" style="width: 600px;" /></a>
 <p>Providing Used Functions is optional, if no help should be provided (for example, in an exam), set the usedFunctions field to an empty cell array.</p>
-</div>
-<div class="section" id="requiredsolutions">
+</section>
+<section id="requiredsolutions">
 <span id="id2"></span><h4>requiredSolutions<a class="headerlink" href="#requiredsolutions" title="Permalink to this headline">¶</a></h4>
 <p>This field refers to the matlab files that students will write their code in. The specified files will be checked against your reference solutions when Validating the Example. It is possible to include multiple files within this field. For example, the following code will include 3 scripts:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">requiredSolutions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sgauss.m&#39;</span><span class="p">,</span><span class="s1">&#39;secansh.m&#39;</span><span class="p">,</span><span class="s1">&#39;pskript.m&#39;</span><span class="p">}</span>
@@ -436,32 +446,32 @@ For Example, the declaration of used functions <a class="reference internal" hre
 </div>
 <p>Files specified in this field will be visible to the students when opening the Example, and are expected to be worked on by the students. For the students, the presented files will be empty initially. Upon Validation, the student solutions will be compared to your reference solutions, depending on the tests specified.
 Provide matlab file-names character arrays.</p>
-</div>
-<div class="section" id="requireddata">
+</section>
+<section id="requireddata">
 <h4>requiredData = {}<a class="headerlink" href="#requireddata" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="extradata">
+</section>
+<section id="extradata">
 <h4>extraData<a class="headerlink" href="#extradata" title="Permalink to this headline">¶</a></h4>
 <p>Similar to <a class="reference internal" href="#requiredsolutions"><span class="std std-ref">required Solutions</span></a>, the files listed within this field will be visible to the students upon opening the Example. The difference is that these files will not be empty to the students, but appear unchanged from how they are present within the Example files. This field is useful if you want to include a dataseries that the student should utilize for solving a task. Files specified within this field are not limitted to matlab-files, you can also include csv, txt, and so on. Students are not supposed to change the files specified as extra Data. If no extra Data is necessary, set this field to an empty cell-array.</p>
-</div>
-<div class="section" id="extradatareadonly">
+</section>
+<section id="extradatareadonly">
 <h4>extraDataReadOnly = {}<a class="headerlink" href="#extradatareadonly" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="extraprograms">
+</section>
+<section id="extraprograms">
 <h4>extraPrograms = {}<a class="headerlink" href="#extraprograms" title="Permalink to this headline">¶</a></h4>
 <p>siehe 3.1 ‘if_tests’</p>
-</div>
-<div class="section" id="extraprogramsreadonly">
+</section>
+<section id="extraprogramsreadonly">
 <h4>extraProgramsReadOnly = {}<a class="headerlink" href="#extraprogramsreadonly" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="testprograms">
+</section>
+<section id="testprograms">
 <h4>testPrograms = {}<a class="headerlink" href="#testprograms" title="Permalink to this headline">¶</a></h4>
 <p>siehe 2.6 ‘plot_res.m’</p>
-</div>
-<div class="section" id="programtags">
+</section>
+<section id="programtags">
 <h4>programTags = {}<a class="headerlink" href="#programtags" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="links">
+</section>
+<section id="links">
 <h4>links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h4>
 <p>Similar to <a class="reference internal" href="#usedfunctions"><span class="std std-ref">Used Functions</span></a>, the students can be provided with additional links under the Links tab. For example, the following code will include these links:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">links</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span>
@@ -476,9 +486,9 @@ Provide matlab file-names character arrays.</p>
 </div>
 <a class="reference internal image-reference" href="_images/LinksTab.png"><img alt="LinksTab" class="align-center" src="_images/LinksTab.png" style="width: 500px;" /></a>
 <p>When adding links to this field, it is necessary to use Link-Abreviations, as can be found under the Administration-perspective. If regular html-links are found within this field, Validation may break with the error-code “Bad Subscript”.</p>
-</div>
-</div>
-<div class="section" id="methods">
+</section>
+</section>
+<section id="methods">
 <h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
 <p>If you are unsure about how methods work in Matlab, you may want to take a look at these resources:<br>
 <a class="reference external" href="https://de.mathworks.com/help/matlab/methods-defining-operations.html">Methods</a><br>
@@ -530,7 +540,7 @@ The general structure is the following:</p>
 </pre></div>
 </div>
 <p>The methods-block can contain one or more matlabTutorTest-functions. You are not limitted to a single test-method, and you can also include multiple different tests within a single method (e.g. GraphicsRequests, CommandCounts, etc). In order for the tests to work properly, a naming structure has to be followed: Each method within the method-block needs a name starting with “matlabTutorTest”, followed by characters of your choice. Deviating from this naming structure may prevent your tests from working. A good practice is to name consecutive tests <code class="docutils literal notranslate"><span class="pre">matlabTutorTest_test1</span></code>, <code class="docutils literal notranslate"><span class="pre">matlabTutorTest_test2</span></code> and so on. In most cases, it should be sufficient to work with a single test-method, though.</p>
-<div class="section" id="comments">
+<section id="comments">
 <h4>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h4>
 <p>The first two lines within a test should be comments, as in the example <a class="reference internal" href="#methodsblock"><span class="std std-ref">above</span></a>. While comments right after class- or function-definitions usually are for <a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/add-help-for-your-program.html">help or documentation</a> pruposes, MatlabTutor uses them to provide additional information about executed tests. Students can see this information after running tests on their Examples. For example, the following code will generate the corresponding output, presented after running the tests:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">matlabTutorTest_test1</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
@@ -539,12 +549,12 @@ The general structure is the following:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/ComputingTutor_TestNameAndDescription_med.png"><img alt="ComputingTutor_TestNameAndDescription_med" class="align-center" src="_images/ComputingTutor_TestNameAndDescription_med.png" style="width: 400px;" /></a>
-</div>
-<div class="section" id="this-init">
+</section>
+<section id="this-init">
 <h4>this.init()<a class="headerlink" href="#this-init" title="Permalink to this headline">¶</a></h4>
 <p>The first line of code within our Test-method should be calling the <code class="docutils literal notranslate"><span class="pre">init()</span></code>-method on our object (remember that we inherited from <code class="docutils literal notranslate"><span class="pre">MatlabTutorExample</span></code>).</p>
-</div>
-<div class="section" id="variable-checks">
+</section>
+<section id="variable-checks">
 <h4>Variable Checks<a class="headerlink" href="#variable-checks" title="Permalink to this headline">¶</a></h4>
 <p>After that, we can start to specify variables that we want to be validated when an Example is tested. This includes the following 4 fields:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableCheck</span> <span class="o">=</span> <span class="p">{};</span>
@@ -555,11 +565,11 @@ The general structure is the following:</p>
 </div>
 <p>Arguably, the most important one is <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>. During Validation, the variables specified within this field will be compared to the ones in your reference solution. Therefore, it allows to check a students solution regarding correct variable definition and results.</p>
 <p>Further Information about how different Variable Checks work can be found within the <a class="reference internal" href="Workbench_AvailableTests.html#availabletests"><span class="std std-ref">Available Tests</span></a>-section.</p>
-</div>
-<div class="section" id="settings-before-tests">
+</section>
+<section id="settings-before-tests">
 <h4>Settings before tests<a class="headerlink" href="#settings-before-tests" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="graphicsrequests">
+</section>
+<section id="graphicsrequests">
 <h4>GraphicsRequests<a class="headerlink" href="#graphicsrequests" title="Permalink to this headline">¶</a></h4>
 <p>The GraphicsRequests-fields allow us to check the correctness of figures and plots. The general structure is to assign cell-arrays to one or more of several <code class="docutils literal notranslate"><span class="pre">request</span></code>-fields. The cell-array contains the features to be tested, specified as char-arrays. For example, the following code-example will assert correct x-limits, x- and y-labels, as well as the title:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorGraphicsRequest</span><span class="o">.</span><span class="n">figure_1</span><span class="o">.</span><span class="n">axes_1</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="o">...</span>
@@ -571,8 +581,8 @@ The general structure is the following:</p>
 <p class="admonition-title">Note</p>
 <p>It is possible to include the declaration of GraphicsRequests in the try-catch block. Nonetheless, the GraphicsRequests should probably be declared before calling the students matlab-files.</p>
 </div>
-</div>
-<div class="section" id="try-catch-block">
+</section>
+<section id="try-catch-block">
 <h4>Try-catch block<a class="headerlink" href="#try-catch-block" title="Permalink to this headline">¶</a></h4>
 <p>The try-catch block is part of every Example.m file, and the place where the matlab-script or -function that is to be tested is called. <strong>It is also the place where tests can be placed</strong>. Due to the possibility of non-working matlab-files submitted by the student, we use the try-catch block to prevent the Validation process from crashing in such cases. If errors occur, they are caught and subsequently assigned to the “mltutorError”-field, as shown in the following code-example. The catch-statement should therefore be identical in every Example.m file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span>
@@ -618,22 +628,22 @@ Even if you do not need to access any variables from the students matlab-script,
 </div>
 <p>Note that we included the return-values of <code class="docutils literal notranslate"><span class="pre">mltutorCountCommand</span></code> in <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>
 For a more comprehensive overview of available tests, see the <a class="reference internal" href="Workbench_AvailableTests.html#availabletests"><span class="std std-ref">Available Tests</span></a>.</p>
-</div>
-<div class="section" id="deinitialization-of-the-test">
+</section>
+<section id="deinitialization-of-the-test">
 <h4>Deinitialization of the test<a class="headerlink" href="#deinitialization-of-the-test" title="Permalink to this headline">¶</a></h4>
 <p>After the try-catch-block, include the following line of code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">deinit</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="validating-and-committing">
+</section>
+</section>
+</section>
+<section id="validating-and-committing">
 <h2>Validating and Committing<a class="headerlink" href="#validating-and-committing" title="Permalink to this headline">¶</a></h2>
 <p>When you are working on new tests, it is considered best practice to regularly validate the functionality of your test-setup (right-click on the Example in the tree, left-click “Validate”). Doing so prevents you from having to search many different code-changes once validation breaks.</p>
 <p>After you are finished with setting up tests, you need to perform a final commit by right clicking the Example and left-clicking “Commit” in the context menu. Otherwise, your changes will not be visible to other users or students. Before committing, a validation-process is triggered automatically, preventing you from committing faulty Examples. Also see <a class="reference internal" href="Workbench_ExampleCreation.html#committing-examples"><span class="std std-ref">Commiting a new Example</span></a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -657,15 +667,15 @@ For a more comprehensive overview of available tests, see the <a class="referenc
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Workbench_ExampleCreation.html" title="previous page">Implementing Tutor Examples</a>
     <a class='right-next' id="next-link" href="Workbench_AvailableTests.html" title="next page">Available Tests</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -682,9 +692,8 @@ For a more comprehensive overview of available tests, see the <a class="referenc
 
       </div>
     </div>
-
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
 
     
