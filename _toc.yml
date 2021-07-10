@@ -3,6 +3,7 @@
 #
 - file: WelcomePage
 - file: Overview
+- file: StudentView
 - file: Workbench
   sections:
     - file: Workbench_ExampleCreation
