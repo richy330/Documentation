@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview of the MatlabTutor &#8212; The MatlabTutor Documentation Page</title>
+    <title>Files within Examples &#8212; The MatlabTutor Documentation Page</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,8 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Student Perspective" href="StudentView.html" />
-    <link rel="prev" title="Welcome to the MatlabTutor Integration-Doc" href="WelcomePage.html" />
+    <link rel="next" title="Anatomy of an Example.m-file" href="Workbench_AnatomyOfWorkingExample.html" />
+    <link rel="prev" title="Implementing Tutor Examples" href="Workbench_ExampleCreation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -91,8 +91,8 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Overview.html">
    Overview of the MatlabTutor
   </a>
  </li>
@@ -101,23 +101,23 @@
    Student Perspective
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Workbench.html">
    Workbench
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Workbench_ExampleCreation.html">
      Implementing Tutor Examples
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Workbench_FilesInExample.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Files within Examples
     </a>
    </li>
@@ -196,7 +196,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Overview.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Workbench_FilesInExample.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -216,7 +216,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FOverview.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/richy330/richy330.github.io/issues/new?title=Issue%20on%20page%20%2FWorkbench_FilesInExample.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -243,14 +243,31 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#perspective-computing-tutor">
-   Perspective: Computing Tutor
+  <a class="reference internal nav-link" href="#convert-json">
+   convert.json
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#perspective-workbench">
-   Perspective: Workbench
+  <a class="reference internal nav-link" href="#example-json">
+   example.json
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-m">
+   Example*.m
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meta-json">
+   meta.json
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reusing-earlier-examples">
+     Reusing earlier Examples
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -263,32 +280,46 @@
         
               <div>
                 
-  <section id="overview-of-the-matlabtutor">
-<h1>Overview of the MatlabTutor<a class="headerlink" href="#overview-of-the-matlabtutor" title="Permalink to this headline">¶</a></h1>
-<section id="perspective-computing-tutor">
-<h2>Perspective: Computing Tutor<a class="headerlink" href="#perspective-computing-tutor" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Entry Page" src="_images/MatlabTutorEntryPage.png" /></p>
-<p>When you are logging in into the MatlabTutor, you will be faced by a Page similar to the one above. There are a lot of interesting places that we should be familiar with, so we will give a short overview within this section. It is planned to give a more detailed guide to all the functionalities in the future, but for now, we will only cover the Example implementation in greater depth.</p>
-<p>Whenever you work within the MatlabTutor, it is important to know in what “Perspective” you currently are. You can check the active Perspective by the “Perspectives” tab in the top. The default one is called “Computing Tutor”, and
-is available for every user logged in to the Tutor. On the left side (below the tab
-with “Computing Tutor”) a dropdown menu provides access to your available courses, and
-below that you can select the year, if you have been signed in to the course for more than one year. In the above screenshot, the selected course is “Programmieren in der Physik”, and the year is 2021.</p>
-<p>Further still, all the available Excercises within the selected course are visible,
-where each Excercise can consist of one or more individual Examples. This is the most
-important place if you are a student of the course, since you are going to solve
-the Examples here.</p>
-<p>Below the listed Excercises, two tabs, called “exercises” and “docs” allow to switch
-between Examples, and additional documents, if provided by the course-tutors.</p>
-<p>Expand one of the Exercises and select one of its Examples, and the Example page will be opened. It will look like the following:</p>
-<p><img alt="First Example Page" src="_images/firstExamplePage.png" /></p>
-<p>You will find the problem-decription on the right side, and a text editor in the middle. The text editor is the place where you will write most of your code (besides the Console) and where you can create your own documentation of everything important to you. At the top of the Editor-section, you will find all your available files, organized in tabs. In general, you will see at least three files: one Matlab file belonging to the Example, and two files called “MyUnitNotes”. Note that the UnitNote Files are a matlab- and a markdown file. These two files will serve as your documentation file, with executable code in one, and markdown-formatted text in the other. These two files consist within each Excercise, meaning that you have access to them across all Examples in one Exercise.</p>
+  <!-- #region -->
+<section id="files-within-examples">
+<h1>Files within Examples<a class="headerlink" href="#files-within-examples" title="Permalink to this headline">¶</a></h1>
+<p>A Tutor Example consists of several files, from reference-solutions, to problem-descriptions, to special metadata files. In this section, we will give a quick overview over what purpose individual files that you may find serve.</p>
+<section id="convert-json">
+<h2>convert.json<a class="headerlink" href="#convert-json" title="Permalink to this headline">¶</a></h2>
+<p>Created when running the admin-function <code class="docutils literal notranslate"><span class="pre">mltutorCreateConvertFile</span></code> (see <a class="reference internal" href="Workbench_ExampleCreation.html#convert-file-creation"><span class="std std-ref">Copying Examples by convert-file</span></a>).
+Allows to make thorough changes to the existing Example before creating a duplicate. Only used when creating new Examples.</p>
 </section>
-<section id="perspective-workbench">
-<h2>Perspective: Workbench<a class="headerlink" href="#perspective-workbench" title="Permalink to this headline">¶</a></h2>
-<p>Another perspective, of particular interest when implementing new Examples, is the “Workbench”.</p>
-<p>Access the Workbench Perspective from the tab “Perspectives” in the top most section of the page. The new perspective will load. You will now find two additional tabs on the top left, namely “Resources” and “Examples”. Select Examples, and you will be faced by a page with very close resemblance to the earlier page, from the “Computing Tutor” perspective.</p>
-<p>This page gives us access to the Excercises and Examples in a similar fashion, but focuses on editing and implementing new Examples for students of a selected course. This view is not accessible to every user, but only to assigned Tutors of the individual courses. It is also, along with the “Administration” Perspective, the most important place for Lecturers of the course, since Examples, allong with all their tests and problem description are going to be defined in here.</p>
-<p>We cover the Implementation of such Examples from the ground up in a lot of detail, since it is the main focus of this documentation. If you are ready, select the appropriate chapter on the left of the book, or follow the “next” buttons down below.</p>
+<section id="example-json">
+<h2>example.json<a class="headerlink" href="#example-json" title="Permalink to this headline">¶</a></h2>
+<p>Set up automatically, contains metainformation and additional information found within Example*.m. Should usually not be altered by the user.</p>
+</section>
+<section id="example-m">
+<h2>Example*.m<a class="headerlink" href="#example-m" title="Permalink to this headline">¶</a></h2>
+<p>This file provides additional information to students, including used functions and links, and contains all the validation tests that students have to pass in order to solve examples. The structure of this file is covered in great depth in <a class="reference internal" href="Workbench_AnatomyOfWorkingExample.html#example-file"><span class="std std-ref">Anatomy of an Example.m-file</span></a></p>
+</section>
+<section id="meta-json">
+<h2>meta.json<a class="headerlink" href="#meta-json" title="Permalink to this headline">¶</a></h2>
+<p>Contains additional metadata and filenames. If certain filenames in the example are altered, it may be necessary to include the changes to this file, otherwise the Example may break.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Geometrische Eigenschaften mehrerer Partikel 2&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Richard Amering&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+	<span class="s2">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleGesamtvolumen_part2.m&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;matlab&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;descriptionMain&quot;</span><span class="p">:</span> <span class="s2">&quot;GesamtvolumenMehrererPartikel_part2.mmd&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;descriptionType&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;descriptionOutput&quot;</span><span class="p">:</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span>
+	<span class="s2">&quot;descriptionDirectory&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dependencies&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;vt2.2021.GesamtvolumenMehrererPartikel_part1&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Important fields are <code class="docutils literal notranslate"><span class="pre">title,</span> <span class="pre">author,</span> <span class="pre">main</span></code> and <code class="docutils literal notranslate"><span class="pre">descriptionMain</span></code>, with the last two referencing the Example*.m file and the problem-description markdown file.</p>
+<section id="reusing-earlier-examples">
+<h3>Reusing earlier Examples<a class="headerlink" href="#reusing-earlier-examples" title="Permalink to this headline">¶</a></h3>
+<p>From a didactic standpoint, it may be very interesting to build examples that rely on earlier student solutions. That way, greater programms can be built from many smaller student solutions, and students learn to write reusable programs. If you want to include other Examples as dependencies for the current Example, include the path to the other Example in the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code>-array, like shown above. Here, part 2 of the programm relies on the solutions found within part 1. By including the path to other Examples, all the files defined there can also be used in the current example. This includes Matlab scripts and function. This technique may be especially helpful if Examples start to get too big for a single evaluation.</p>
+<!-- #endregion -->
+</section>
 </section>
 </section>
 
@@ -317,8 +348,8 @@ between Examples, and additional documents, if provided by the course-tutors.</p
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="WelcomePage.html" title="previous page">Welcome to the MatlabTutor Integration-Doc</a>
-    <a class='right-next' id="next-link" href="StudentView.html" title="next page">Student Perspective</a>
+    <a class='left-prev' id="prev-link" href="Workbench_ExampleCreation.html" title="previous page">Implementing Tutor Examples</a>
+    <a class='right-next' id="next-link" href="Workbench_AnatomyOfWorkingExample.html" title="next page">Anatomy of an Example.m-file</a>
 
         </div>
         

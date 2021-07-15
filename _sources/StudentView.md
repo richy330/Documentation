@@ -47,7 +47,7 @@ download
 ```
 
 
-The final step is to rename the file, and include the correct file-extension, `xlsx` in this case. This is being achieved by using the system call `mv`, by providing the file to rename first, followed by the desired name:
+The final step is to rename the file, and include the correct file-extension, `xlsx` in this case. This is being achieved by using the system call `mv`, by providing the file to be renamed first, followed by the desired name:
 ```
 system('mv download excelfile.xlsx')
 ```

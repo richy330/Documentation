@@ -52,7 +52,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Anatomy of an Example.m-file" href="Workbench_AnatomyOfWorkingExample.html" />
+    <link rel="next" title="Files within Examples" href="Workbench_FilesInExample.html" />
     <link rel="prev" title="Workbench" href="Workbench.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -114,6 +114,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Implementing Tutor Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Workbench_FilesInExample.html">
+     Files within Examples
     </a>
    </li>
    <li class="toctree-l2">
@@ -378,7 +383,7 @@ You will be asked to provide a new Example-ID. Be sure to give you Example a des
 <p>We will discuss the anatomy and meaning of the individual files within the following chapters.</p>
 </section>
 <section id="copying-examples-by-convert-file">
-<h2>Copying Examples by convert-file<a class="headerlink" href="#copying-examples-by-convert-file" title="Permalink to this headline">¶</a></h2>
+<span id="convert-file-creation"></span><h2>Copying Examples by convert-file<a class="headerlink" href="#copying-examples-by-convert-file" title="Permalink to this headline">¶</a></h2>
 <p>The second way to implement new examples is by creating a so called Convert-file. MatlabTutor provides us with two functions that create such files, and then build new examples from them. Contrary to the Context-menu approach, we have more control of the building process, since we can alter the convertfile in the building process, preventing us from having to change things like filenames, functionnames or the author in many different places. Instead, we can specifiy the things we want to change within the convert-file, and MatlabTutor will automatically apply these changes wherever needed. It can be viewed as a more convenient way of getting to the starting point in defining the examples. No matter which of the two approches you choose, you still need to define your matlab-script, the example-description markdown, and your test-set.</p>
 <section id="create-a-convert-file">
 <h3>Create a convert-file<a class="headerlink" href="#create-a-convert-file" title="Permalink to this headline">¶</a></h3>
@@ -564,7 +569,7 @@ Changing the ID however is not that simple. In fact, it’s not possible to give
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Workbench.html" title="previous page">Workbench</a>
-    <a class='right-next' id="next-link" href="Workbench_AnatomyOfWorkingExample.html" title="next page">Anatomy of an Example.m-file</a>
+    <a class='right-next' id="next-link" href="Workbench_FilesInExample.html" title="next page">Files within Examples</a>
 
         </div>
         
