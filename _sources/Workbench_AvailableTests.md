@@ -1,7 +1,7 @@
 (AvailableTests)=
 # Available Tests
 
-MatlabTutor provides various tests that allow us to test different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within a test-method in the ```Example....m``` file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section [](Example-file).
+MatlabTutor provides various tests that allow us to verify different aspects of student solutions. For example, we can check how often a certain Matlab command was used and specify its minimum and maximum number of occurence, check if certain variables in the solution have the correct value, verify how plots look, and so on. Arguably, checking variables and plots are the most frequent types of tests you will use. This chapter will give an overview of the workings and signatures of available tests. Each and every check has to be defined within a test-method in the `Example....m` file, that is part of every working Tutor Example. If you are unsure about how and where to add certain tests within this file, check the according section [](Example-file).
 
 ## Variable Checks
 
@@ -32,46 +32,49 @@ this.mlt.mltutorInternalVariableCheck = {};
 Variables included within this field are not specific to the scripts given to the students, but instead include MatlabTutor-internal variables.
 
 
-Some test are automatically done if you add a specific predefined variable to the the cell array. Several of those variables can be listed in the cell array.
+Some test are automatically done if you add a specific predefined variable to the the cell array. Multiple variables can be listed in the cell array.
 
 #### semicolon (;)
 
 This test automatically tests the proper use of semicolons in the required solutions:
 
-`this.mlt.mltutorInternalVariableCheck = {'mltutorSemicolon‘};`
+```
+this.mlt.mltutorInternalVariableCheck = {'mltutorSemicolon‘};
+```
 
 This test does not require any further settings.
 
-#### Test to prohibit use of the command `clear`
+#### Prohibit use of the command `clear`
 
-`this.mlt.mltutorInternalVariableCheck = {'mltutorClearCount‘};`
+```
+this.mlt.mltutorInternalVariableCheck = {'mltutorClearCount‘};
+```
 
-This test does not require any further settings.
+This test will assert that the command `clear` is not present in the student's solution. It does not require any further settings.
 
 #### Help text
 
-To check the help text of a solution use 
-
-`this.mlt.mltutorInternalVariableCheck = {'mltutorHelpRegexpCorrect’};`
-
-This has to be accompanied with a proper specification of the variable `this.mlt.mltutorHelpRegexp`
+To check the help text of a solution use the following `mltutorInternalVariableCheck` accompanied with a proper specification of the variable `this.mlt.mltutorHelpRegexp`
 
 ```
+this.mlt.mltutorInternalVariableCheck = {'mltutorHelpRegexpCorrect’};
+
+
 this.mlt.mltutorHelpRegexp = {'^[ \t]*[Mm]atlab’, 'Program’};
 ```
 
 This would mean that the first two lines of the help text are checked:
 
-- Line 1: Could start with zero or more blanks or tabs followed by either Matlab or matlab 
+- Line 1: Could start with zero or more whitespaces followed by either Matlab or matlab 
 - Line 2: Must contain the word Program
 
-One can use all the syntax from regular expressions in Matlab.
+Every new regular expression within the cell `mltutorHelpRegexp` will be responsible for checking a new line of the help text. The order matters. One can use all the syntax from regular expressions in Matlab.
 
-An extensive example can be found in `Einfaches Plotprogramm` 
+An extensive example can be found in `Programmiern in der Physik - Übung 1 - Einfaches Plotprogramm`.
 
 #### Graphics
 
-To check graphics requires the specification
+Checking graphics requires the specification
 
 ```
 this.mlt.mltutorInternalVariableCheck = {'mltutorGraphicsResults'};
@@ -109,9 +112,9 @@ this.mlt.mltutorInternalVariableDisplay = {};
 The tests described in the following sections have certain return variables. It is not sufficient to only write a certain test, instead, the return variables have to be included in the `this.mlt.mltutorVariableCheck = {};` field in the beginning of the encapsulating test - method. For example, if you use [](CountCommand), you have to include its return values, like in the following:
 ```
 this.mlt.mltutorVariableCheck = {count_test, count, stat};
-%
-%
-%
+
+
+
 [count_test, count, stat] = mltutorCountCommand(filename, commands, max_count, min_count);
 ```
 
@@ -177,7 +180,7 @@ This test does not need to be referenced as a method of the Example-Class. In sh
 
 If your Example should include the `input` function, you have to specify the expected inputs with the following code:
 ```
-this.mlt.mltutorInputAnswers = {'0.1','0.2'};
+this.mlt.mltutorInputAnswers = {'0.1', '0.2'};
 ```
 In this example there would be two answers ('0.1' and '0.2') for two distinct calls of `input`.
 
@@ -198,7 +201,7 @@ This example is from `Vergleich von Formeln` from `Programmieren in der Physik`.
 
 These tests require `this.mlt.mltutorInternalVariableCheck = {'mltutorDispRegexpCorrect'};` to be set. 
 
-In the following example there are four outputs with disp required from the student
+In the following example, the student is required to create four `disp`-outputs:
 
 ```
 this.mlt.mltutorDispRegexp = {...
@@ -209,21 +212,22 @@ this.mlt.mltutorDispRegexp = {...
 };
 ```
 
-Again, regexp is used to specify the required output, e.g., the first line has to start with
-`Aussen:` or `aussen:`, then followed by some characters (zero or more times), and then followed
-by the Nth value in the variable `ua` with given accuracy.
+Again, regexp is used to specify the required output, e.g., the first line has to start with `Aussen:` or `aussen:`, then followed by some characters (zero or more times), and then followed by the Nth value in the variable `ua` with given accuracy.
 
 
 
 
 (anonymous_function_test)=
-### Testing of an anonymous function
+### Testing anonymous functions
 
-If the student, is required to write an anonymous function, like `nc = @(a,x) a * sin(x).^2` the function handle `func` can not be used in the variable list for automatic tests.
+If the student is required to write an anonymous function, like `nc = @(a,x) a * sin(x).^2` the function handle `func` can not be used in the variable list for automatic tests.
 
-You have to execute it within the test in the `try-catch`-environment, as demonstrated in the following code:
+Instead, the function has to be executed it within the `try-catch`-block in a test-method, and the result of that execution has to be checked as a regular variable. This is demonstrated in the following example:
 
 ```
+this.mlt.mltutorVariableCheck = {func_test};
+
+
 try
     a_mlt = 2;
     x_mlt = linspace(-pi, pi, 100);
@@ -234,16 +238,32 @@ catch test_try_catch
 end
 ```
 
-Now you can include `func_test` in the list of variables to be tested. Here also a test message is generated, if the function could not be executed at all.
+Now you can include `func_test` in the list of variables to be tested. Here, a test message is generated as well, if the function could not be executed at all.
+
+
+
+### Testing if files are created
+If students are required to create new files, like PNGs, xlsx, etc, the Matlab command `exist` can be used, as shown in the following example:
+```
+this.mlt.mltutorVariableCheck = {'new_file_exists'}
+
+
+try
+    student_script
+    new_file_exists = exist('new_file_name', 'file');
+
+catch mltutor_error
+    this.mlt.mltutorError = mltutor_error;
+end
+```
+`exist` will return a boolean value, that is then validated like a regular variable in the `mltutorVariableCheck `.
 
 
 
 
+## Accuracy of variable-tests
 
-
-## Accuracy of variable tests
-
-If you would like to specify the relative acceptable error of variable tests you can specify
+If you would like to specify the relative acceptable error of variable-tests, you can specify
 
 ```
 this.mlt.mltutorDoubleAccuracy = 1.E-6;
