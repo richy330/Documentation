@@ -344,8 +344,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#testing-if-files-are-created">
-     Testing if files are created
+    <a class="reference internal nav-link" href="#testing-if-files-exist-or-are-created">
+     Testing if files exist or are created
     </a>
    </li>
   </ul>
@@ -569,8 +569,8 @@ This example is from <code class="docutils literal notranslate"><span class="pre
 </div>
 <p>Now you can include <code class="docutils literal notranslate"><span class="pre">func_test</span></code> in the list of variables to be tested. Here, a test message is generated as well, if the function could not be executed at all.</p>
 </section>
-<section id="testing-if-files-are-created">
-<h3>Testing if files are created<a class="headerlink" href="#testing-if-files-are-created" title="Permalink to this headline">¶</a></h3>
+<section id="testing-if-files-exist-or-are-created">
+<h3>Testing if files exist or are created<a class="headerlink" href="#testing-if-files-exist-or-are-created" title="Permalink to this headline">¶</a></h3>
 <p>If students are required to create new files, like PNGs, xlsx, etc, the Matlab command <code class="docutils literal notranslate"><span class="pre">exist</span></code> can be used, as shown in the following example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">mlt</span><span class="o">.</span><span class="n">mltutorVariableCheck</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;new_file_exists&#39;</span><span class="p">}</span>
 
@@ -584,7 +584,7 @@ This example is from <code class="docutils literal notranslate"><span class="pre
 <span class="n">end</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">exist</span></code> will return a boolean value, that is then validated like a regular variable in the <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span> </code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">exist</span></code> will return a boolean value, that is then validated like a regular variable in the <code class="docutils literal notranslate"><span class="pre">mltutorVariableCheck</span></code>.</p>
 </section>
 </section>
 <section id="accuracy-of-variable-tests">

@@ -242,7 +242,7 @@ Now you can include `func_test` in the list of variables to be tested. Here, a t
 
 
 
-### Testing if files are created
+### Testing if files exist or are created
 If students are required to create new files, like PNGs, xlsx, etc, the Matlab command `exist` can be used, as shown in the following example:
 ```
 this.mlt.mltutorVariableCheck = {'new_file_exists'}
@@ -256,7 +256,7 @@ catch mltutor_error
     this.mlt.mltutorError = mltutor_error;
 end
 ```
-`exist` will return a boolean value, that is then validated like a regular variable in the `mltutorVariableCheck `.
+`exist` will return a boolean value, that is then validated like a regular variable in the `mltutorVariableCheck`.
 
 
 
