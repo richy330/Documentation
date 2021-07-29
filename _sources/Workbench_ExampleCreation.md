@@ -37,17 +37,14 @@ We can now head back to the Excercise we copied the example to, and should be ab
 
 ````{panels}
 ![Workbench_CopyByContextmenu5](tutor_screenshots/Workbench_CopyByContextmenu5.png)
-
-
+---
 ![Workbench_CopyByContextmenu6](tutor_screenshots/Workbench_CopyByContextmenu6.png) 
-
 ````
 
 Once we checked out an Example, we can access its files by clicking the drop-down-marker to its left:
 
 ````{panels}
 ![Workbench_CopyByContextmenu7](tutor_screenshots/Workbench_CopyByContextmenu7.png)
-
 ````
 
 We will discuss the anatomy and meaning of the individual files within the following chapters.
@@ -63,13 +60,10 @@ We will start again by heading to the Example we want our conversion-process to 
 
 ````{panels}
 ![Workbench_CopyByConvertFile1](tutor_screenshots/Workbench_CopyByConvertFile1_annotated.png)
-
 ---
-
-
 ![Workbench_CopyByConvertFile2b](tutor_screenshots/Workbench_CopyByConvertFile2b_annotated.png) 
-
 ````
+
 ````{panels}
 ![Workbench_CopyByConvertFile2c](tutor_screenshots/Workbench_CopyByConvertFile2c.png)
 
