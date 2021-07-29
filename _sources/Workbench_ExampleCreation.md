@@ -1,4 +1,3 @@
----
 (example_implementation)=
 # Implementing Tutor Examples
 
@@ -66,6 +65,7 @@ We will start again by heading to the Example we want our conversion-process to 
 ![Workbench_CopyByConvertFile1](tutor_screenshots/Workbench_CopyByConvertFile1_annotated.png)
 
 ---
+
 
 ![Workbench_CopyByConvertFile2b](tutor_screenshots/Workbench_CopyByConvertFile2b_annotated.png) 
 
@@ -187,10 +187,4 @@ Right-clicking on one of the example-folders will open a context menu, with an "
 ----
 ![Workbench_ResourcesTab3](tutor_screenshots/Workbench_ResourcesTab3.png)
 ````
-
-
-
-
-
-
 
