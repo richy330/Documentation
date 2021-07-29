@@ -113,7 +113,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Workbench_ExampleCreation.html">
-     Implementing Tutor Examples
+     Modifying the convert-file
     </a>
    </li>
    <li class="toctree-l2">
@@ -381,7 +381,7 @@
                 
   <section id="anatomy-of-an-example-m-file">
 <span id="example-file"></span><h1>Anatomy of an Example.m-file<a class="headerlink" href="#anatomy-of-an-example-m-file" title="Permalink to this headline">¶</a></h1>
-<p>In order to be able to create our own Examples, it is important to understand the underlying files necessary for a working Example. Along with the solution-code provided as a matlab-script and the problem description in Markdown, the Example.m file is the most important one for creating a working Tutor Example. We will discuss the structure of Example.m files in this chapter. It is assumed that you followed the chapter <a class="reference internal" href="Workbench_ExampleCreation.html#example-implementation"><span class="std std-ref">Implementing Tutor Examples</span></a>, and already have a working starting point for the implementation of further tests and additional data. If you don’t have an Example including an Example.m-file assigned to an Excercise, or the Validation of an Example fails, it is best to start fresh, before editting the Example.m-file. Altering the Example.m file is very sensitive to breaks, and debugging may be difficult. It is best practice to start with a working Example (with successful Validation), and running the validation process whenever adding new tests, or refactoring the code in any other sense. This way, it should be easy to revert breaking changes and quickly find faulty code-edits.</p>
+<p>In order to be able to create our own Examples, it is important to understand the underlying files necessary for a working Example. Along with the solution-code provided as a matlab-script and the problem description in Markdown, the Example.m file is the most important one for creating a working Tutor Example. We will discuss the structure of Example.m files in this chapter. It is assumed that you followed the chapter <span class="xref myst"></span>, and already have a working starting point for the implementation of further tests and additional data. If you don’t have an Example including an Example.m-file assigned to an Excercise, or the Validation of an Example fails, it is best to start fresh, before editting the Example.m-file. Altering the Example.m file is very sensitive to breaks, and debugging may be difficult. It is best practice to start with a working Example (with successful Validation), and running the validation process whenever adding new tests, or refactoring the code in any other sense. This way, it should be easy to revert breaking changes and quickly find faulty code-edits.</p>
 <section id="purpose">
 <h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
 <p>The Example.m file is responsible for setting up required tests correctly, provides information about useful links and used functions, and defines which files are used within the Example.</p>
@@ -410,7 +410,7 @@ The class will contain certain properties and methods, which again have to follo
 <a class="reference external" href="https://de.mathworks.com/help/matlab/properties-storing-data-and-state.html">Properties</a> <br>
 <a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_oop/how-to-use-properties.html">Ways to Use Properties</a> <br>
 <a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_oop/specifying-properties.html">Property Definition</a></p>
-<p>Right after our class-definition, we define a properties-block. It will include additional information for students, as well as meta-information about the Example-file structure. If you followed our Tutorial on <a class="reference internal" href="Workbench_ExampleCreation.html#example-implementation"><span class="std std-ref">implementing new Tutor Examples</span></a>, the properties-block of your Example.m file will look like the following:</p>
+<p>Right after our class-definition, we define a properties-block. It will include additional information for students, as well as meta-information about the Example-file structure. If you followed our Tutorial on <span class="xref myst">implementing new Tutor Examples</span>, the properties-block of your Example.m file will look like the following:</p>
 <div class="highlight-default notranslate" id="propertiesblock"><div class="highlight"><pre><span></span><span class="n">classdef</span> <span class="n">ExampleMathConstants</span> <span class="o">&lt;</span> <span class="n">MatlabTutorExample</span>
     <span class="o">%</span> <span class="n">Mathematische</span> <span class="n">Konstanten</span><span class="p">,</span> <span class="n">Format</span>
     <span class="o">%</span>
@@ -450,7 +450,7 @@ For Example, the declaration of used functions <a class="reference internal" hre
 </pre></div>
 </div>
 <p>Files specified in this field will be visible to the students when opening the Example, and are expected to be worked on by the students. For the students, the presented files will be empty initially. Upon Validation, the student solutions will be compared to your reference solutions, depending on the tests specified.
-Provide matlab file-names character arrays.</p>
+Provide matlab filenames as character-arrays.</p>
 </section>
 <section id="requireddata">
 <h4>requiredData = {}<a class="headerlink" href="#requireddata" title="Permalink to this headline">¶</a></h4>
@@ -646,7 +646,7 @@ For a more comprehensive overview of available tests, see the <a class="referenc
 <section id="validating-and-committing">
 <h2>Validating and Committing<a class="headerlink" href="#validating-and-committing" title="Permalink to this headline">¶</a></h2>
 <p>When you are working on new tests, it is considered best practice to regularly validate the functionality of your test-setup (right-click on the Example in the tree, left-click “Validate”). Doing so prevents you from having to search many different code-changes once validation breaks.</p>
-<p>After you are finished with setting up tests, you need to perform a final commit by right clicking the Example and left-clicking “Commit” in the context menu. Otherwise, your changes will not be visible to other users or students. Before committing, a validation-process is triggered automatically, preventing you from committing faulty Examples. Also see <a class="reference internal" href="Workbench_ExampleCreation.html#committing-examples"><span class="std std-ref">Commiting a new Example</span></a></p>
+<p>After you are finished with setting up tests, you need to perform a final commit by right clicking the Example and left-clicking “Commit” in the context menu. Otherwise, your changes will not be visible to other users or students. Before committing, a validation-process is triggered automatically, preventing you from committing faulty Examples. Also see <span class="xref myst"></span></p>
 </section>
 </section>
 

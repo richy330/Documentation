@@ -1,3 +1,4 @@
+---
 (example_implementation)=
 # Implementing Tutor Examples
 
@@ -24,7 +25,7 @@ This approach is especially feasable if an existing Example is already very simi
 
 
 A context menu appears, giving us several options. Hover over "Duplicate example to course" and follow the subsequently appearing submenus to the destination Excercise. In the example above, it is "Unit 6" within the Course "VTII". Be very carefull not to accidently select "Move example", because this will remove the existing Example from the original course and potentially leave its tutors very unhappy!
- You will be asked to provide a new Example-ID. Be sure to give you Example a descriptive name, and keep the course-identifier before the example-name. It is important that every Example-ID only appears once within a course, and MatlabTutor won't allow us to choose an existing ID. We will call our Example "myNewExample", and click "OK". If everything works, we will be see a success-infobox:
+ You will be asked to provide a new Example-ID. Be sure to give your Example a descriptive name, and keep the course-identifier before the example-name. It is important that every Example-ID only appears once within a course, and MatlabTutor won't allow us to choose an existing ID. We will call our Example "myNewExample", and click "OK". If everything works, we will be see a success-infobox:
  
 ![Workbench_CopyByContextmenu3](tutor_screenshots/Workbench_CopyByContextmenu3.png)  | ![Workbench_CopyByContextmenu4](tutor_screenshots/Workbench_CopyByContextmenu4.png) 
  :-----------------------------------------------------------------------------------|------------------------------:|
@@ -38,7 +39,6 @@ We can now head back to the Excercise we copied the example to, and should be ab
 ````{panels}
 ![Workbench_CopyByContextmenu5](tutor_screenshots/Workbench_CopyByContextmenu5.png)
 
----
 
 ![Workbench_CopyByContextmenu6](tutor_screenshots/Workbench_CopyByContextmenu6.png) 
 
@@ -104,7 +104,7 @@ The content of this file determines how the new example is going to look like af
 - "changes" is a JSON object (with key-value pairs) and can include multiple entries. In the copy-process, all of the files contained by the original example, along with file-names are going to be parsed. Each occurence of a key-string will then be replaced with the corresponding value-string provided by this object. This allows us to make thorough naming changes, without having to worry about overlooking one variable- or file-name in one of our files. This ensures that all tests are still working afterwards.
 
     Our original Example includes several files with a filename including "if_test". We want to change them to new names starting with "my_new_scriptname". We could write one key-value pair for each "if_test"-file we want to change, but it is not necessary. If we only include "if_test" as a key (without specifying the number of one particular file), then all the files including "if_test" in its name will be changed. This means that the key-value pair "if_test": "my_new_script" will change the files "if_test1", "if_test2" and so on (and also references to these files within our code) to "my_new_script1", "my_new_script2". In this case, one entry in our changes-object is sufficient to rename several files at once. 
-You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pait to the changes-object, separated from other pairs by a comma (",").
+You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pair to the changes-object, separated from other pairs by a comma (",").
 
 Note that we also want to rename our main-test-file to "ExampleNewMainFile.m". Since we already declared that name within the "main" field, it is not necessary to include it in the changes-field.
 

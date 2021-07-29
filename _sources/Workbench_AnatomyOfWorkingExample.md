@@ -84,7 +84,7 @@ This field refers to the matlab files that students will write their code in. Th
 requiredSolutions = {'sgauss.m','secansh.m','pskript.m'}
 ```
 Files specified in this field will be visible to the students when opening the Example, and are expected to be worked on by the students. For the students, the presented files will be empty initially. Upon Validation, the student solutions will be compared to your reference solutions, depending on the tests specified. 
-Provide matlab file-names character arrays.
+Provide matlab filenames as character-arrays.
 
 #### requiredData = {}
 #### extraData

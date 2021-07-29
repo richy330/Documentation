@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Implementing Tutor Examples &#8212; The MatlabTutor Documentation Page</title>
+    <title>Modifying the convert-file &#8212; The MatlabTutor Documentation Page</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -113,7 +113,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Implementing Tutor Examples
+     Modifying the convert-file
     </a>
    </li>
    <li class="toctree-l2">
@@ -242,54 +242,32 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-up-a-starting-point">
-   Setting up a starting point
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Modifying the convert-file
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#copying-examples-by-context-menu">
-   Copying Examples by context-menu
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copying-an-example">
+   Copying an Example
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#copying-examples-by-convert-file">
-   Copying Examples by convert-file
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commiting-a-new-example">
+   Commiting a new Example
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-convert-file">
-     Create a convert-file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modifying-the-convert-file">
-     Modifying the convert-file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copying-an-example">
-     Copying an Example
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#commiting-a-new-example">
-     Commiting a new Example
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modifying-names-and-ids">
-     Modifying Names and IDs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deleting-examples">
-     Deleting Examples
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifying-names-and-ids">
+   Modifying Names and IDs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deleting-examples">
+   Deleting Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uploading-additional-files">
    Uploading additional Files
   </a>
@@ -305,121 +283,14 @@
         
               <div>
                 
-  <section id="implementing-tutor-examples">
-<span id="example-implementation"></span><h1>Implementing Tutor Examples<a class="headerlink" href="#implementing-tutor-examples" title="Permalink to this headline">¶</a></h1>
-<p>Implementing TutorExamples can be done under the Perspective “Workbench”, so be sure to select it, and then choose the tab “Examples” in the top left. All the following operations will take place within this view, although the selected course may vary.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_ExampleView1" src="_images/Workbench_ExampleView1.png" />)</p>
+  <p><img alt="Workbench_CopyByConvertFile2b" src="_images/Workbench_CopyByConvertFile2b_annotated.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>````{panels}
+![Workbench_CopyByConvertFile2c](tutor_screenshots/Workbench_CopyByConvertFile2c.png)
+
+</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<section id="setting-up-a-starting-point">
-<h2>Setting up a starting point<a class="headerlink" href="#setting-up-a-starting-point" title="Permalink to this headline">¶</a></h2>
-<p>Whenever we want to implement new Tutor Examples, it is best to start from Examples aleady existing. This way, we have a strong guideline, allowing us to adjust files of interest, while not having to focus on proper creation of the setup-files needed by the tool. There are two ways to accomplish this: Copying an existing Example from another Course via Context Menus provided by MatlabTutor, and via creation of Convert-files.</p>
-</section>
-<section id="copying-examples-by-context-menu">
-<h2>Copying Examples by context-menu<a class="headerlink" href="#copying-examples-by-context-menu" title="Permalink to this headline">¶</a></h2>
-<p>This approach is especially feasable if an existing Example is already very similar to the new Example we want to implement. We can copy Examples from and move them to any course we have tutor access to, also accross different courses. In order to do so, we navigate to the corresponding Example, and right-click on it (hence “context-menu”). In the following, we choose the second Example “Einfache Berechnungen” from Unit 1 within the “Programmieren in der Physik”-course:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>1: Context Menu</p></th>
-<th class="text-align:right head"><p>2: Following the path</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p><img alt="Workbench_CopyByContextmenu1" src="_images/Workbench_CopyByContextmenu1.png" /></p></td>
-<td class="text-align:right"><p><img alt="Workbench_CopyByContextmenu2" src="_images/Workbench_CopyByContextmenu2.png" /></p></td>
-</tr>
-</tbody>
-</table>
-<p>A context menu appears, giving us several options. Hover over “Duplicate example to course” and follow the subsequently appearing submenus to the destination Excercise. In the example above, it is “Unit 6” within the Course “VTII”. Be very carefull not to accidently select “Move example”, because this will remove the existing Example from the original course and potentially leave its tutors very unhappy!
-You will be asked to provide a new Example-ID. Be sure to give you Example a descriptive name, and keep the course-identifier before the example-name. It is important that every Example-ID only appears once within a course, and MatlabTutor won’t allow us to choose an existing ID. We will call our Example “myNewExample”, and click “OK”. If everything works, we will be see a success-infobox:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p><img alt="Workbench_CopyByContextmenu3" src="_images/Workbench_CopyByContextmenu3.png" /></p></th>
-<th class="text-align:right head"><p><img alt="Workbench_CopyByContextmenu4" src="_images/Workbench_CopyByContextmenu4.png" /></p></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>We can now head back to the Excercise we copied the example to, and should be able to see an exact copy of the originating Example. Note that the title of the example has not changed yet, but it carries the new ID we speciefied before. In order to work on the underlying files, we need to “Checkout” the example. Currently, the Example-files are only present on the serverside, after checkout, we will have them loaded into our browser cache and accessible through our MatlabTutor interface. We do that by right-clicking on the Example and clicking “Checkout”:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByContextmenu5" src="_images/Workbench_CopyByContextmenu5.png" /></p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByContextmenu6" src="_images/Workbench_CopyByContextmenu6.png" /></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Once we checked out an Example, we can access its files by clicking the drop-down-marker to its left:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByContextmenu7" src="_images/Workbench_CopyByContextmenu7.png" /></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>We will discuss the anatomy and meaning of the individual files within the following chapters.</p>
-</section>
-<section id="copying-examples-by-convert-file">
-<span id="convert-file-creation"></span><h2>Copying Examples by convert-file<a class="headerlink" href="#copying-examples-by-convert-file" title="Permalink to this headline">¶</a></h2>
-<p>The second way to implement new examples is by creating a so called Convert-file. MatlabTutor provides us with two functions that create such files, and then build new examples from them. Contrary to the Context-menu approach, we have more control of the building process, since we can alter the convertfile in the building process, preventing us from having to change things like filenames, functionnames or the author in many different places. Instead, we can specifiy the things we want to change within the convert-file, and MatlabTutor will automatically apply these changes wherever needed. It can be viewed as a more convenient way of getting to the starting point in defining the examples. No matter which of the two approches you choose, you still need to define your matlab-script, the example-description markdown, and your test-set.</p>
-<section id="create-a-convert-file">
-<h3>Create a convert-file<a class="headerlink" href="#create-a-convert-file" title="Permalink to this headline">¶</a></h3>
-<p>We will start again by heading to the Example we want our conversion-process to start from, checking it out and viewing the internal files. Below the example listing on the left side, we find three tabs, called “History”, “PreDef” and “Admin”. If we select the “Admin” tab, we find the two important functions mentioned earlier, “mltutorCreateConvertFile” and “mltutorCopyExample”. We can run “mltutorCreateConvertFile” by double-clicking it. This will create our Convert file, and finish by printing “logical 1” into the console. This indicates that the conversion process was in fact successful, and we can now access the conversion file. We do this by refreshing the file-view panel (click the yellow circular arrows in the top left of the file-view, or right-click the Example and click “Refresh” in the context menu). A new file will appear within the Example, called “conversion.json”.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByConvertFile1" src="_images/Workbench_CopyByConvertFile1_annotated.png" /></p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByConvertFile2b" src="_images/Workbench_CopyByConvertFile2b_annotated.png" /></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-body docutils">
-<p class="card-text"><img alt="Workbench_CopyByConvertFile2c" src="_images/Workbench_CopyByConvertFile2c.png" /></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="modifying-the-convert-file">
-<h3>Modifying the convert-file<a class="headerlink" href="#modifying-the-convert-file" title="Permalink to this headline">¶</a></h3>
+<h1>Modifying the convert-file<a class="headerlink" href="#modifying-the-convert-file" title="Permalink to this headline">¶</a></h1>
 <p>We can open files by double-clicking them. Their contents will appear in the editor window in the middle section. When inspecting the conversion.json file, we will find something along the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;newExampleID&quot;</span><span class="p">:</span> <span class="s2">&quot;appsoft.2021.steuer_if_mod&quot;</span><span class="p">,</span>
@@ -441,7 +312,7 @@ You will be asked to provide a new Example-ID. Be sure to give you Example a des
 <li><p>“author” should be changed to your name.</p></li>
 <li><p>“changes” is a JSON object (with key-value pairs) and can include multiple entries. In the copy-process, all of the files contained by the original example, along with file-names are going to be parsed. Each occurence of a key-string will then be replaced with the corresponding value-string provided by this object. This allows us to make thorough naming changes, without having to worry about overlooking one variable- or file-name in one of our files. This ensures that all tests are still working afterwards.</p>
 <p>Our original Example includes several files with a filename including “if_test”. We want to change them to new names starting with “my_new_scriptname”. We could write one key-value pair for each “if_test”-file we want to change, but it is not necessary. If we only include “if_test” as a key (without specifying the number of one particular file), then all the files including “if_test” in its name will be changed. This means that the key-value pair “if_test”: “my_new_script” will change the files “if_test1”, “if_test2” and so on (and also references to these files within our code) to “my_new_script1”, “my_new_script2”. In this case, one entry in our changes-object is sufficient to rename several files at once.
-You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pait to the changes-object, separated from other pairs by a comma (“,”).</p>
+You can search through the original files and find additional code changes you want to conduct. If so, add them as a new key-value pair to the changes-object, separated from other pairs by a comma (“,”).</p>
 </li>
 </ul>
 <p>Note that we also want to rename our main-test-file to “ExampleNewMainFile.m”. Since we already declared that name within the “main” field, it is not necessary to include it in the changes-field.</p>
@@ -461,7 +332,7 @@ You can search through the original files and find additional code changes you w
 <p>When the desired changes are made to the file, you can save them by pressing Ctrl+S on your Keyboard. The file-tab at the top of the editor will indicate the saved changes by not showing a “*” beside the filename.</p>
 </section>
 <section id="copying-an-example">
-<h3>Copying an Example<a class="headerlink" href="#copying-an-example" title="Permalink to this headline">¶</a></h3>
+<h1>Copying an Example<a class="headerlink" href="#copying-an-example" title="Permalink to this headline">¶</a></h1>
 <p>In order to create our new example, we have to run the “mltutorCopyExample” script, which is accessible from the “Admin” tab, the same place where we found the “mltutorCreateConvertFile” script earlier. Run the script by double-clicking, and wait for “logical 1” to appear in the console. This indicates a successful copy-process.</p>
 <p>When you successfully converted the Example, it is not yet assigned to any Course or Excercise, and therefore not visible in the excercises view. Instead, we find the newly created Example under the “unassigned” tab, wich is located right under the example-view:</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -478,7 +349,7 @@ You can search through the original files and find additional code changes you w
 <p>You will find your example in a folder named with the corresponding ExampleID. You can now check the “meta.json” file, if all its entries are correct. Otherwise, you can still change them within this file, but then you also need to apply these changes to other file- and variable-names within the other Example files. Otherwise, your Example may stop working, or not run the tests correctly. Unlike in the conversion process, the “meta.json” file is not being parsed later, so changes within it are not being applied automatically to other locations.</p>
 </section>
 <section id="commiting-a-new-example">
-<span id="committing-examples"></span><h3>Commiting a new Example<a class="headerlink" href="#commiting-a-new-example" title="Permalink to this headline">¶</a></h3>
+<h1>Commiting a new Example<a class="headerlink" href="#commiting-a-new-example" title="Permalink to this headline">¶</a></h1>
 <p>Since the newly created Example is not yet assigned to any Excercise, it will also not be available to students of the course. In order to assign it, we first have to navigate to the course that should contain the new example. We will select “VT Programmieren 2”. Afterwards, we right-click on the folder containing the example (in the “unassigned” tab), and click “Commit”.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -507,19 +378,18 @@ You can search through the original files and find additional code changes you w
 <p>Either via Context menu, or Convert file, when you have a new Example assigned to an Excercise, you are ready to define the tests required to pass your Example. We will cover the details of defining these tests in the <a class="reference internal" href="Workbench_AnatomyOfWorkingExample.html#example-file"><span class="std std-ref">next chapter</span></a>.</p>
 </section>
 <section id="modifying-names-and-ids">
-<h3>Modifying Names and IDs<a class="headerlink" href="#modifying-names-and-ids" title="Permalink to this headline">¶</a></h3>
+<h1>Modifying Names and IDs<a class="headerlink" href="#modifying-names-and-ids" title="Permalink to this headline">¶</a></h1>
 <p>After an Example is assigned, you will notice it being displayed in the tree on the left, with a title and the aforementioned ID. It may look like the following:</p>
 <p><img alt="Workbench_NameAndID" src="_images/Workbench_NameAndID.png" /></p>
 <p>If we decide to change the title of the Example after its creation, we can easily do this in the Administration Perspective, as described in the according <span class="xref myst">section</span>.
 Changing the ID however is not that simple. In fact, it’s not possible to give a new ID to an already existing Example. Instead, we have to work around this limitation. By right-clicking on the Example, we can select ‘Checkout as unassigned’ from the context menu, where we will be asked to provide a new ID, since every Example needs to have a unique ID. After doing so, we will find a copy of the Example under the ‘unassigned’ tab. Note that this does not remove the original Example from the Excercise! We can now reassign the Example with its new ID to the Excercise.</p>
 </section>
 <section id="deleting-examples">
-<h3>Deleting Examples<a class="headerlink" href="#deleting-examples" title="Permalink to this headline">¶</a></h3>
+<h1>Deleting Examples<a class="headerlink" href="#deleting-examples" title="Permalink to this headline">¶</a></h1>
 <p>Currently, deleting Examples is not supported, since it may cause problems with Excercises that already have been worked on by students, or cause vacant entries within the database in the background. If you wish to render Examples invisible, or remove them from an Excercise, it is best to simply turn its visibility off within the Administration Perspective, or manually move it to an Excercise dedicated for your unwanted Examples, whose visibility can be turned of as well.</p>
 </section>
-</section>
 <section id="uploading-additional-files">
-<h2>Uploading additional Files<a class="headerlink" href="#uploading-additional-files" title="Permalink to this headline">¶</a></h2>
+<h1>Uploading additional Files<a class="headerlink" href="#uploading-additional-files" title="Permalink to this headline">¶</a></h1>
 <p>It is often neccessary to include additional files to our Examples, either images, datafiles or supplemental course materials. Files of any type can be included into our Examples by uploading them via the “Resources” tab. The “Resources” tab can be found in the Workbench perspective, right beside the “Example” tab.</p>
 <p>Right-clicking on one of the example-folders will open a context menu, with an “Upload” option. Clicking this will open a new window, allowing to upload new files either by drag-and-drop or by browsing the directory containing the file of interest on your machine.</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -540,7 +410,6 @@ Changing the ID however is not that simple. In fact, it’s not possible to give
 </div>
 </div>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
